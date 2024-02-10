@@ -1,0 +1,78 @@
+main{
+    width: 100%;
+    position: relative;
+    color: #d9d9d9;
+}
+
+main ul{
+    list-style: none;
+}
+
+.header{
+    background-color: #F3DD6B;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 370px ;
+    font-weight: 700;
+    padding-top: 70px;
+    color: #000000;
+}
+
+.header h1{
+    font-size: 3rem;
+    padding-bottom: 15px;
+}
+
+.header h3{
+    font-size: 2rem;
+    
+}
+
+.section{
+    background-color: #161630;
+    height: 500px;
+    padding: 2%;
+    
+}
+
+.section .involved{
+    display:flex ;
+    flex-direction: row;
+    justify-content: space-between;   
+}
+
+.section .involved .sobre-img{
+    background: url("../images/sobre.png") no-repeat center center;
+    background-size: contain;
+    width: 600px;
+    margin-top: -30vh;
+    margin-right: -10%;
+}
+
+.section .involved .persons li{
+    padding: 7px;
+    font-size: 1.6rem;
+}
+
+.section .involved .persons li:first-child{
+    padding-bottom: 17px;
+}
+
+.section .involved .persons li a {
+    color: #d9d9d9;
+    transition: 0.3s ease-in-out;
+}
+
+.section .involved .persons li a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.section .involved .persons:last-child li:nth-last-child(2){
+    margin: 13px 0;
+}
+
+.section .involved .persons:last-child{
+    text-align: right;
+}

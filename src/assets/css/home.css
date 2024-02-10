@@ -1,0 +1,40 @@
+#Home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10vh;
+    background: linear-gradient(29.61deg, rgba(22,22,48,1) 0%, rgba(32,15,49,1) 100%);
+    width: 100%;
+}
+
+#Home h1{
+    color: #ffffff;
+    font-size: 5rem;
+    text-align: center;
+}
+
+#Home .ufu{
+    width: 110px;
+    position: absolute;
+    right: 1.5%;
+    top: 70px;
+}
+
+#Home #content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#Home img{
+    width: 38.5%;
+}
+
+#Home #content span{
+    font-size: 1.8rem;
+    line-height: 1.8;
+    color: #ffffff;
+}

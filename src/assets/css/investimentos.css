@@ -1,0 +1,140 @@
+#Investimentos{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #D9D9D9;
+    padding-top: 5%;
+}
+
+#Investimentos> h1{
+    font-size: 3.7rem;
+    color: #000000;
+    font-weight: 700;
+}
+
+.invest-group{
+    width: 100%;
+    height: auto;
+    padding: 35px 0;
+    margin: 35px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.card{
+    height: 500px;
+    width: 350px;
+    background-color: #161630;
+    border-radius: 30px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.card h3{
+    font-size: 1.8rem;
+    text-align: center;
+    width: 100%;
+}
+
+.card span{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    font-size: 1.38rem;
+    font-weight: 300;
+}
+
+.card span p:nth-child(2){
+    font-weight: 700;
+
+}
+
+.card .ir{
+    height: 11px;
+    width: 75%;
+}
+
+.card .ir~p{
+    width: 100%;
+    
+}
+
+.card .grafico{
+    width: 100%;
+    height: 30%;
+}
+
+.card #vale{
+    background: #d9d9d9 url('../images/Vale3.PNG') no-repeat right bottom;
+    background-size: cover;
+}
+
+.card #itau{
+    background: #d9d9d9 url('../images/Itub4.PNG') no-repeat right bottom;
+    background-size: cover;
+}
+
+.card #bb{
+    background: #d9d9d9 url('../images/Bbas3.PNG') no-repeat right bottom;
+    background-size: cover;
+}
+
+/*Micro Interação*/
+
+.tooltip{
+    background: #FF774A;
+    color: rgb(255, 227, 247);
+    padding: 1em;
+    padding-left: 2.3em;
+    border-radius: 20px;
+    width: 250px;
+    clip-path: circle(4% at 5% 90%);
+    transition: all .3s ease-in-out;
+    position: relative;
+    top: -17rem;
+    right: -16rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-weight: 500;
+}
+
+.tooltip:hover{
+    clip-path: circle(100%);
+}
+
+
+.icon{
+    position: absolute;
+    bottom: 5.8%;
+    left: 3.5%;
+    font-weight: bold;
+    transition: opacity 0.4s ease-in-out;
+    color: rgb(255, 227, 247);
+    font-weight: bolder;
+}
+
+.tooltip:hover .icon{
+    opacity: 0%;
+}
+
+.tooltip p{
+    margin-top: 1em;;
+}
+
+.tooltip h1{
+    font-size: 1.56rem;
+    color: rgb(255, 227, 247);
+    margin: 5%;
+}
+

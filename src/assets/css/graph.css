@@ -1,0 +1,13 @@
+.tradingview-widget-copyright{
+    display: none !important;
+}
+
+iframe:nth-child(1){
+    display: none !important;
+}
+
+.tradingview-widget-container{
+    width: 100% !important;
+    height: 80vh !important;
+    margin-bottom: -5vh !important;
+}
