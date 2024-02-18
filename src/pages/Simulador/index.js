@@ -6,7 +6,7 @@ function Simulador(){
         <main id='Simulador'>
             <div className='content'>
                 <h1>Faça sua simulação de investimentos agora</h1>
-                <a href='http://localhost:3000/Simulador' className='btn' target="_blank">Simular agora</a>
+                <a href='https://simuladormatematicafinanceira.onrender.com/Cadastro' className='btn'>Simular agora</a>
             </div>
             <img src={Dinheiro} alt="dinheiro"/>
         </main>

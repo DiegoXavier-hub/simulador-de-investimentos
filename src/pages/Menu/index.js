@@ -20,14 +20,14 @@ function Menu(){
             <div className='menu-back' id='menu-back'></div>
 
             <ul className='menu' id='menu-items'>
-                <li className='logo'><a href='http://localhost:3000/' id='logo'><img src={Logo} alt="logo">
+                <li className='logo'><a href='https://simuladormatematicafinanceira.onrender.com/' id='logo'><img src={Logo} alt="logo">
                     </img><span><h3>PROSPER</h3><h3>INVEST</h3></span></a>
                 </li>
                 
-                <li><a href='#Home'>HOME</a></li>
-                <li><a href='#Simulador'>SIMULADOR</a></li>
-                <li><a href='#Investimentos'>INVESTIMENTOS</a></li>
-                <li><a href='#Sobre'>SOBRE</a></li>
+                <li><a href='https://simuladormatematicafinanceira.onrender.com/#Home'>HOME</a></li>
+                <li><a href='https://simuladormatematicafinanceira.onrender.com/#Simulador'>SIMULADOR</a></li>
+                <li><a href='https://simuladormatematicafinanceira.onrender.com/#Investimentos'>INVESTIMENTOS</a></li>
+                <li><a href='https://simuladormatematicafinanceira.onrender.com/#Sobre'>SOBRE</a></li>
             </ul>
         </nav>
     )
