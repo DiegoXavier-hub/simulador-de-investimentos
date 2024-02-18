@@ -104,7 +104,7 @@ function Cadastro(){
                         </section>
                     </div>
 
-                    <a href={`http://localhost:3000/Cadastro/${userNameCrip}-${userSurnameCrip}-${userInvestValueCrip}-${investType}`} className='btn'>
+                    <a href={`https://simuladormatematicafinanceira.onrender.com/Investir/${userNameCrip}-${userSurnameCrip}-${userInvestValueCrip}-${investType}`} className='btn'>
                         Avançar
                     </a>
 
