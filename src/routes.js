@@ -9,7 +9,7 @@ function RoutesApp() {
             <Routes>
                 <Route path="/" element={<App/>}/>
                 <Route path="/Cadastro" element={<Cadastro/>}/>
-                <Route path="/Investimentos/:userName-:surname-:investValue-:investType" element={<Cadastro/>}/>
+                <Route path="/Investir/:userName-:surname-:investValue-:investType" element={<Cadastro/>}/>
                 <Route path="*" element={<PageNotFound/>}/>
             </Routes>
         </BrowserRouter>

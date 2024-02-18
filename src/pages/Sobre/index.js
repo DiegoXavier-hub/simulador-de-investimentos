@@ -15,7 +15,7 @@ function Sobre(){
                 <div className='involved'>
                     <ul className='persons'>
                         <li><h1>Github</h1></li>
-                        <li><a href='https://github.com/DiegoXavier-hub/Simulador' target='_blank' >Projeto</a></li>
+                        <li><a href='https://github.com/DiegoXavier-hub/simulador-de-investimentos' target='_blank' >Projeto</a></li>
                         <li><a href='https://github.com/DiegoXavier-hub' target='_blank' >Diego Xavier</a></li>
                         <li><a href='https://github.com/lucasramosfs' target='_blank' >Lucas Ramos</a></li>
                     </ul>
