@@ -29,6 +29,7 @@
 
 #Investir #grafico h1{
     font-size: 3rem;
+    color: #FF774A;
 }
 
 #Investir #content{
@@ -51,6 +52,7 @@
 #Investir #content>h1{
     align-self: flex-start;
     font-size: 4rem;
+    color: #ed6e43;
 }
 
 #Investir #content span{
