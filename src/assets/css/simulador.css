@@ -27,7 +27,7 @@
     width: 550px;
 }
 
-.content .btn{
+.btn{
     width: 200px;
     padding: 12px;
     text-align: center;
@@ -36,10 +36,10 @@
     font-size: 2rem;
     font-weight: bolder;
     box-shadow: -3px 3px 0px #000000;
-     
+
 }
 
-.content .btn:hover{
+.btn:hover{
     box-shadow: -5px 5px 3px #000000;
     position: relative ;
     right: -1px;

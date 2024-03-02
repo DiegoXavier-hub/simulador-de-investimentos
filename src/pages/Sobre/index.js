@@ -39,9 +39,6 @@ function Sobre(){
                     <h1>Referências:</h1>
                 </div>
             </section>
-
-        
-
         </main>
     )
 }

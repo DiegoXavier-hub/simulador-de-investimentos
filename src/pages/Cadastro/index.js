@@ -3,7 +3,6 @@ import Menu from "../Menu"
 import Rodape from '../Rodape'
 import "../../assets/css/cadastro.css"
 import primeirasPerguntas from '../../assets/images/primeiras-perguntas.png'
-import { criptografar } from '../../functions/criptografia.js'
 
 
 function Cadastro(){
@@ -15,18 +14,7 @@ function Cadastro(){
 
     const handleOpcaoChange = (event) => {
         setInvestType(event.target.value);
-        Codificar()
     };
-
-    const [userNameCrip, setUserNameCrip] = useState(userName)
-    const [userSurnameCrip, setUserSurnameCrip] = useState(userSurname)
-    const [userInvestValueCrip, setuserInvestValueCrip] = useState(userInvestValue)
-
-    const Codificar = () =>{
-        setUserNameCrip(criptografar(userName, 22))
-        setUserSurnameCrip(criptografar(userSurname, 3))
-        setuserInvestValueCrip(Math.sqrt(userInvestValue))
-    }
 
     return(
         <main id='Cadastro'>
@@ -41,7 +29,6 @@ function Cadastro(){
                             <input type='text' name='username' id='userName' placeholder='Type your name here' required value={userName} 
                             onChange={event=>{
                                 setUserName(event.target.value)
-                                Codificar()
                             }}
                             />
                         </section>
@@ -51,7 +38,6 @@ function Cadastro(){
                             <input type='text' name='usersurname' id='userSurname' placeholder='Type your surname here' required value={userSurname} 
                             onChange={event=>{
                                 setUserSurname(event.target.value)
-                                Codificar()
                             }}
                             />
                         </section>
@@ -61,7 +47,6 @@ function Cadastro(){
                             <input type='number' name='userInvestValue' id='userInvestValue' placeholder='R$ 00.00' required value={userInvestValue} 
                             onChange={event=>{
                                 setUserInvestValue(event.target.value)
-                                Codificar()
                             }}
                             />
                         </section>
@@ -83,6 +68,7 @@ function Cadastro(){
                                 />
                                 Conservador
                             </label>
+
                             <label>
                                 <input
                                 type='radio'
@@ -92,6 +78,7 @@ function Cadastro(){
                                 />
                                 Moderado
                             </label>
+                            
                             <label>
                                 <input
                                 type='radio'
@@ -104,7 +91,7 @@ function Cadastro(){
                         </section>
                     </div>
 
-                    <a href={`https://simuladormatematicafinanceira.onrender.com/Investir/${userNameCrip}-${userSurnameCrip}-${userInvestValueCrip}-${investType}`} className='btn'>
+                    <a href={`https://simuladormatematicafinanceira.onrender.com/Investir/${userName}/${userSurname}/${userInvestValue}/${investType}`} className='btn'>
                         Avançar
                     </a>
 

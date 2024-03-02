@@ -73,6 +73,7 @@
 }
 
 #Cadastro .content .inputs section input[type='radio']{
+    appearance: none;
     -webkit-appearance: none;
     background-color: #d9d9d9;
     width: 15px;
@@ -91,7 +92,6 @@
     width: 40%;
     display: block;
 }
-
 
 img{
     width: 100%;
