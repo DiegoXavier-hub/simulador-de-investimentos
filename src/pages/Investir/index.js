@@ -1,7 +1,7 @@
 import "../../assets/css/investir.css"
 import { useParams } from 'react-router-dom'
 import Menu from "../Menu"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 
@@ -82,6 +82,7 @@ function Investir() {
     }
 
     const handleInputChange = (event, cdbName) => {
+        ControlarBotão()
         const { value } = event.target;
         setInvestimentos(prevState => ({
         ...prevState,
@@ -94,6 +95,177 @@ function Investir() {
         input.disabled ? input.value = '' : input.value = input.value
     }
 
+    let input1 = document.getElementById("valorcdb1")
+    let input2 = document.getElementById("valorcdb2")
+    let input3 = document.getElementById("valorcdb3")
+    let input4 = document.getElementById("valoracao1")
+    let input5 = document.getElementById("valoracao2")
+    let input6 = document.getElementById("valoracao3")
+    let check1 = document.getElementById("cdb1")
+    let check2 = document.getElementById("cdb2")
+    let check3 = document.getElementById("cdb3")
+    let check4 = document.getElementById("acao1")
+    let check5 = document.getElementById("acao2")
+    let check6 = document.getElementById("acao3")
+    let button = document.getElementById("btnInvestir")
+
+    const desativarBotao = () => {
+        button.style.opacity = '0.6';
+        button.style.transition = 'none';
+    }
+
+    const ControlarBotão = () => {
+        let redirecionar = true
+
+        if
+        (
+            check1.checked === false &&
+            check2.checked === false &&
+            check3.checked === false &&
+            check4.checked === false &&
+            check5.checked === false &&
+            check6.checked === false
+        ){
+            redirecionar = false
+        } else {
+            redirecionar = true
+
+            if(check1.checked === true){
+                if(redirecionar === true){
+                    input1.value !== '' && parseFloat(input1.value) >= 100 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if(check2.checked === true){
+                if(redirecionar === true){
+                    input2.value !== '' && parseFloat(input2.value) >= 38 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if(check3.checked === true){
+                if(redirecionar === true){
+                    input3.value !== '' && parseFloat(input3.value) >= 142 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if(check4.checked === true){
+                if(redirecionar === true){
+                    input4.value !== '' && parseFloat(input4.value) >= 0 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if(check5.checked === true){
+                if(redirecionar === true){
+                    input5.value !== '' && parseFloat(input5.value) >= 0 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if(check5.checked === true){
+                if(redirecionar === true){
+                    input5.value !== '' && parseFloat(input5.value) >= 0 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if(check6.checked === true){
+                if(redirecionar === true){
+                    input6.value !== '' && parseFloat(input6.value) >= 0 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if (redirecionar === true){
+                button.style.opacity = '1';
+                button.style.transition = 'all 0.3';
+            } else {
+                desativarBotao()
+            }
+        }
+    }
+    
+    useEffect(()=>{
+        input1 = document.getElementById("valorcdb1")
+        input2 = document.getElementById("valorcdb2")
+        input3 = document.getElementById("valorcdb3")
+        input4 = document.getElementById("valoracao1")
+        input5 = document.getElementById("valoracao2")
+        input6 = document.getElementById("valoracao3")
+        check1 = document.getElementById("cdb1")
+        check2 = document.getElementById("cdb2")
+        check3 = document.getElementById("cdb3")
+        check4 = document.getElementById("acao1")
+        check5 = document.getElementById("acao2")
+        check6 = document.getElementById("acao3")
+        button = document.getElementById("btnInvestir")
+        ControlarBotão()
+    }, [])
+
+    const Redirecionar = () => {
+        let redirecionar = true
+
+        if
+        (
+            check1.checked === false &&
+            check2.checked === false &&
+            check3.checked === false &&
+            check4.checked === false &&
+            check5.checked === false &&
+            check6.checked === false
+        ){
+            redirecionar = false
+        } else {
+            redirecionar = true
+
+            if(check1.checked === true){
+                if(redirecionar === true){
+                    input1.value !== '' && parseFloat(input1.value) >= 100 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if(check2.checked === true){
+                if(redirecionar === true){
+                    input2.value !== '' && parseFloat(input2.value) >= 38 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if(check3.checked === true){
+                if(redirecionar === true){
+                    input3.value !== '' && parseFloat(input3.value) >= 142 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if(check4.checked === true){
+                if(redirecionar === true){
+                    input4.value !== '' && parseFloat(input4.value) >= 0 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if(check5.checked === true){
+                if(redirecionar === true){
+                    input5.value !== '' && parseFloat(input5.value) >= 0 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if(check5.checked === true){
+                if(redirecionar === true){
+                    input5.value !== '' && parseFloat(input5.value) >= 0 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if(check6.checked === true){
+                if(redirecionar === true){
+                    input6.value !== '' && parseFloat(input6.value) >= 0 ? redirecionar = true : redirecionar = false
+                }
+            }
+
+            if (redirecionar === true){
+                //window.location.href = `http://localhost:3000/Resultados/${userName}/${userSurname}`
+                window.location.href = `https://simuladormatematicafinanceira.onrender.com/Resultados/${userName}/${userSurname}`
+            } else {
+                desativarBotao()
+                alert("Preencha os campos corretamente")
+            }
+        }
+    }
+
     return (
 
         <main id='Investir'>
@@ -104,7 +276,7 @@ function Investir() {
 
             <section id='rendafixa'>
 
-            <h1>Renda Fixa - R$ {valores.rendaFixaValue}</h1>
+            <span className="tittleSpan"><h1>Renda Fixa - R$ {valores.rendaFixaValue}</h1><h1>Valor R$</h1></span>
 
             <div>
 
@@ -119,9 +291,11 @@ function Investir() {
                 <input
                 type="number"
                 onChange={(event) => handleInputChange(event, 'cdb1')}
-                placeholder="R$ 00.00"
+                placeholder="Minimo: R$100.00"
                 id='valorcdb1'
                 className='valores'
+                min='100'
+                required
                 disabled
                 />
                 </label>
@@ -145,9 +319,11 @@ function Investir() {
                 <input
                     type="number"
                     onChange={(event) => handleInputChange(event, 'cdb2')}
-                    placeholder="R$ 00.00"
+                    placeholder="Minimo: R$38.03"
                     id='valorcdb2'
                     className='valores'
+                    min='38'
+                    required
                     disabled
                 />
 
@@ -171,9 +347,11 @@ function Investir() {
                 <input
                     type="number"
                     onChange={(event) => handleInputChange(event, 'cdb3')}
-                    placeholder="R$ 00.00"
+                    placeholder="Minimo: R$142.92"
                     id='valorcdb3'
                     className='valores'
+                    min='142'
+                    required
                     disabled
                 />
                 </label>
@@ -185,7 +363,7 @@ function Investir() {
 
             <section id='rendavariavel'>
 
-            <h1>Renda Variavel - R$ {valores.rendaVariavelValue}</h1>
+            <span className="tittleSpan"><h1>Renda Variavel - R$ {valores.rendaVariavelValue}</h1><h1>Número de cotas</h1></span>
 
             <div>
 
@@ -200,9 +378,11 @@ function Investir() {
                 <input
                 type="number"
                 onChange={(event) => handleInputChange(event, 'acao1')}
-                placeholder="R$ 00.00"
+                placeholder="0"
                 id='valoracao1'
                 className='valores'
+                min='1'
+                required
                 disabled
                 />
                 </label>
@@ -226,9 +406,11 @@ function Investir() {
                 <input
                     type="number"
                     onChange={(event) => handleInputChange(event, 'acao2')}
-                    placeholder="R$ 00.00"
+                    placeholder="0"
                     id='valoracao2'
                     className='valores'
+                    min='1'
+                    required
                     disabled
                 />
 
@@ -253,9 +435,11 @@ function Investir() {
                 <input
                     type="number"
                     onChange={(event) => handleInputChange(event, 'acao3')}
-                    placeholder="R$ 00.00"
+                    placeholder="0"
                     id='valoracao3'
                     className='valores'
+                    min='1'
+                    required
                     disabled
                 />
                 </label>
@@ -265,10 +449,10 @@ function Investir() {
 
             <br />
 
-            <a onClick={() => {
-                console.log(investimentos)
+            <button onClick={() => {
                 GuardarValores()
-                }} className='btn' href={`https://simuladormatematicafinanceira.onrender.com/Resultados/${userName}/${userSurname}`}>Salvar</a>
+                Redirecionar()
+                }} className='btn' id="btnInvestir">Continuar</button>
 
             </section>
 

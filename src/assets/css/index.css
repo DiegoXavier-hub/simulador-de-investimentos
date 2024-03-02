@@ -53,3 +53,7 @@ a:hover{
 iframe{
     display: block !important;
 }
+
+button{
+    border: none;
+}
