@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../assets/css/investimentos.css'
 
 function Investimentos(){
+    
+    // Data de hoje
+    const hoje = new Date();
+    const diaAtual = `${String(hoje.getDate()).padStart(2, '0')}/${String(hoje.getMonth() + 1).padStart(2, '0')}/${hoje.getFullYear()}`;
+    
+    // Data daqui a exatamente 10 anos
+    const dataDaqui10Anos = new Date();
+    dataDaqui10Anos.setFullYear(dataDaqui10Anos.getFullYear() + 10);
+    const dataFutura = `${String(dataDaqui10Anos.getDate()).padStart(2, '0')}/${String(dataDaqui10Anos.getMonth() + 1).padStart(2, '0')}/${dataDaqui10Anos.getFullYear()}`;
+
+    // Quantos dias de hoje até 10 anos à frente
+    const diffEmMilissegundos = dataDaqui10Anos - hoje;
+    const diasValor = Math.floor(diffEmMilissegundos / (1000 * 60 * 60 * 24));
+
+    const anoDaqui10Anos = dataDaqui10Anos.getFullYear();
+
     return(
         <main id='Investimentos'>
             
@@ -28,16 +44,16 @@ function Investimentos(){
 
                     <span>
                         <p>Data de vencimento</p>
-                        <p>21/01/2026</p>
+                        <p>{dataFutura}</p>
                     </span>
 
                     <span>
                         <p>Vence em</p>
-                        <p>x dias</p>
+                        <p>{diasValor} dias</p>
                     </span>
 
                     <span>
-                        <p className='ir'>IR sobre o rendimento 
+                        <div className='ir'>IR sobre o rendimento 
                             <div className='tooltip'>
                                 <span className='icon'>?</span>
                                 <h1>IR Sobre Rendimento</h1>
@@ -61,7 +77,7 @@ function Investimentos(){
                                     <p>15%</p>
                                 </span>
                             </div>
-                        </p>
+                        </div>
                         <p>22,5% a 15% de IR</p>
                     </span>
 
@@ -78,7 +94,7 @@ function Investimentos(){
                 </div>
 
                 <div className='card'>
-                <h3>Tesouro Prefixado com Juros Semestrais 2033</h3>
+                <h3>Tesouro Prefixado com Juros Semestrais {anoDaqui10Anos}</h3>
                     <span>
                         <p>Investimento Mínimo</p>
                         <p>R$39,03</p>
@@ -96,16 +112,16 @@ function Investimentos(){
 
                     <span>
                         <p>Data de vencimento</p>
-                        <p>01/01/2033</p>
+                        <p>{dataFutura}</p>
                     </span>
 
                     <span>
                         <p>Vence em</p>
-                        <p>x dias</p>
+                        <p>{diasValor} dias</p>
                     </span>
 
                     <span>
-                        <p className='ir'>IR sobre o rendimento 
+                        <div className='ir'>IR sobre o rendimento 
                             <div className='tooltip'>
                                 <span className='icon'>?</span>
                                 <h1>IR Sobre Rendimento</h1>
@@ -129,7 +145,7 @@ function Investimentos(){
                                     <p>15%</p>
                                 </span>
                             </div>
-                        </p>
+                        </div>
                         <p>22,5% a 15% de IR</p>
                     </span>
 
@@ -141,7 +157,7 @@ function Investimentos(){
                 </div>
 
                 <div className='card'>
-                <h3>Tesouro SELIC 2029</h3>
+                <h3>Tesouro SELIC {anoDaqui10Anos}</h3>
                     <span>
                         <p>Investimento Mínimo</p>
                         <p>R$142,92</p>
@@ -159,16 +175,16 @@ function Investimentos(){
 
                     <span>
                         <p>Data de vencimento</p>
-                        <p>01/03/2026</p>
+                        <p>{dataFutura}</p>
                     </span>
 
                     <span>
                         <p>Vence em</p>
-                        <p>x dias</p>
+                        <p>{diasValor} dias</p>
                     </span>
 
                     <span>
-                        <p className='ir'>IR sobre o rendimento 
+                        <div className='ir'>IR sobre o rendimento 
                             <div className='tooltip'>
                                 <span className='icon'>?</span>
                                 <h1>IR Sobre Rendimento</h1>
@@ -192,7 +208,7 @@ function Investimentos(){
                                     <p>15%</p>
                                 </span>
                             </div>
-                        </p>
+                        </div>
                         <p id='teste'>22,5% a 15% de IR</p>
                     </span>
 

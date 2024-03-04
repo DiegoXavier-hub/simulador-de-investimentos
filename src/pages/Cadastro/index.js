@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Menu from "../Menu"
 import Rodape from '../Rodape'
 import "../../assets/css/cadastro.css"
@@ -15,6 +15,63 @@ function Cadastro(){
     const handleOpcaoChange = (event) => {
         setInvestType(event.target.value);
     };
+
+    const VerificarFormulario = (redirecionar, valueInput, button) => {
+        if( redirecionar === true){
+            if(userName === ''){
+                redirecionar = false
+            }
+        }
+        if( redirecionar === true){
+            if(userSurname === ''){
+                redirecionar = false
+            }
+        }
+        if( redirecionar === true){
+            if(parseFloat(userInvestValue) <= 0 || userInvestValue===''){
+                redirecionar = false
+                valueInput.style.border = '1px solid red'
+            } else {
+                valueInput.style.border = '2px solid green'
+            }
+        }
+        
+        if (redirecionar === true){
+            button.style.opacity = '1';
+            button.style.transition = 'all 0.3s';
+            button.style.cursor = 'pointer'
+            return true
+        } else {
+            desativarBotao()
+        }
+    }
+
+    useEffect(()=>{
+        valueInput = document.getElementById("userInvestValue")
+        button = document.getElementById("cadastroButtom")
+        let redirecionar = true
+
+        VerificarFormulario(redirecionar, valueInput, button)
+    })
+
+    let valueInput = document.getElementById("userInvestValue")
+    let button = document.getElementById("cadastroButtom")
+
+    const Redirecionar = () => {
+
+        let redirecionar = true
+
+        VerificarFormulario(redirecionar, valueInput, button)
+        if (VerificarFormulario(redirecionar, valueInput, button) === true){
+            window.location.href = `https://simuladormatematicafinanceira.onrender.com/Investir/${userName}/${userSurname}/${userInvestValue}/${investType}`
+        }
+    }
+
+    const desativarBotao = () => {
+        button.style.opacity = '0.6';
+        button.style.transition = 'none';
+        button.style.cursor = 'no-drop'
+    }
 
     return(
         <main id='Cadastro'>
@@ -91,9 +148,11 @@ function Cadastro(){
                         </section>
                     </div>
 
-                    <a href={`https://simuladormatematicafinanceira.onrender.com/Investir/${userName}/${userSurname}/${userInvestValue}/${investType}`} className='btn'>
+                    <button className='btn' id='cadastroButtom' onClick={()=>{
+                        Redirecionar()
+                    }}>
                         Avançar
-                    </a>
+                    </button>
 
                 </div>
                 

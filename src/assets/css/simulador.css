@@ -36,7 +36,7 @@
     font-size: 2rem;
     font-weight: bolder;
     box-shadow: -3px 3px 0px #000000;
-
+    cursor: pointer;
 }
 
 .btn:hover{

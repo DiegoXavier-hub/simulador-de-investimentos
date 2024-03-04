@@ -46,16 +46,16 @@ function Investir() {
                 lineTension: 0.1,
                 data: [valores.rendaFixaValue, valores.rendaVariavelValue],
                 backgroundColor: [
-                'rgba(255, 0, 0, 0.3)',
-                'rgba(0, 0, 250, 0.3)',
+                'rgb(95, 182, 76)',
+                '#e75b2c',
                 ],
                 borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
+                'rgb(199, 250, 187)',
+                '#ffaa8e',
                 ],
                 borderWidth: 1,
             },
-        ],
+        ], 
     };
     
     const options = {
@@ -77,7 +77,10 @@ function Investir() {
         acao3: 0
     });
 
-    const GuardarValores = () =>{
+    const GuardarValores = () => {
+        investimentos.acao1 = parseInt(investimentos.acao1)
+        investimentos.acao2 = parseInt(investimentos.acao2)
+        investimentos.acao3 = parseInt(investimentos.acao3)
         localStorage.setItem("Investimentos", JSON.stringify(investimentos))
     }
 
@@ -92,7 +95,7 @@ function Investir() {
 
     const AlterarInput = (check, input) =>{
         check.checked === true ? input.disabled = false : input.disabled = true
-        input.disabled ? input.value = '' : input.value = input.value
+        input.disabled ? input.value = '' : input.value = input.value + ''
     }
 
     let input1 = document.getElementById("valorcdb1")
@@ -132,56 +135,93 @@ function Investir() {
 
             if(check1.checked === true){
                 if(redirecionar === true){
-                    input1.value !== '' && parseFloat(input1.value) >= 100 ? redirecionar = true : redirecionar = false
+                    if(input1.value !== '' && parseFloat(input1.value) >= 100)
+                    { 
+                        redirecionar = true
+                        input1.style.border = "2px solid green"
+                    } else {
+                        redirecionar = false
+                        input1.style.border = "1px solid red"
+                    } 
                 }
             }
 
             if(check2.checked === true){
                 if(redirecionar === true){
-                    input2.value !== '' && parseFloat(input2.value) >= 38 ? redirecionar = true : redirecionar = false
+                    if(input2.value !== '' && parseFloat(input2.value) >= 38.03)
+                    { 
+                        redirecionar = true
+                        input2.style.border = "2px solid green"
+                    } else {
+                        redirecionar = false
+                        input2.style.border = "1px solid red"
+                    } 
                 }
             }
 
             if(check3.checked === true){
                 if(redirecionar === true){
-                    input3.value !== '' && parseFloat(input3.value) >= 142 ? redirecionar = true : redirecionar = false
+                    if(input3.value !== '' && parseFloat(input3.value) >= 142.92)
+                    { 
+                        redirecionar = true
+                        input3.style.border = "2px solid green"
+                    } else {
+                        redirecionar = false
+                        input3.style.border = "1px solid red"
+                    } 
                 }
             }
 
             if(check4.checked === true){
                 if(redirecionar === true){
-                    input4.value !== '' && parseFloat(input4.value) >= 0 ? redirecionar = true : redirecionar = false
+                    if(input4.value !== '' && parseInt(input4.value) >= 1)
+                    { 
+                        redirecionar = true
+                        input4.style.border = "2px solid green"
+                    } else {
+                        redirecionar = false
+                        input4.style.border = "1px solid red"
+                    } 
                 }
             }
 
             if(check5.checked === true){
                 if(redirecionar === true){
-                    input5.value !== '' && parseFloat(input5.value) >= 0 ? redirecionar = true : redirecionar = false
-                }
-            }
-
-            if(check5.checked === true){
-                if(redirecionar === true){
-                    input5.value !== '' && parseFloat(input5.value) >= 0 ? redirecionar = true : redirecionar = false
+                    if(input5.value !== '' && parseInt(input5.value) >= 1)
+                    { 
+                        redirecionar = true
+                        input5.style.border = "2px solid green"
+                    } else {
+                        redirecionar = false
+                        input5.style.border = "1px solid red"
+                    } 
                 }
             }
 
             if(check6.checked === true){
                 if(redirecionar === true){
-                    input6.value !== '' && parseFloat(input6.value) >= 0 ? redirecionar = true : redirecionar = false
+                    if(input6.value !== '' && parseInt(input6.value) >= 1)
+                    { 
+                        redirecionar = true
+                        input6.style.border = "2px solid green"
+                    } else {
+                        redirecionar = false
+                        input6.style.border = "1px solid red"
+                    } 
                 }
             }
 
             if (redirecionar === true){
                 button.style.opacity = '1';
                 button.style.transition = 'all 0.3';
+                return true
             } else {
                 desativarBotao()
             }
         }
     }
-    
-    useEffect(()=>{
+
+    const atualizarComponente = () =>{
         input1 = document.getElementById("valorcdb1")
         input2 = document.getElementById("valorcdb2")
         input3 = document.getElementById("valorcdb3")
@@ -195,75 +235,22 @@ function Investir() {
         check5 = document.getElementById("acao2")
         check6 = document.getElementById("acao3")
         button = document.getElementById("btnInvestir")
+    }
+    
+    useEffect(()=>{
+        atualizarComponente()
         ControlarBotão()
-    }, [])
+    })
 
     const Redirecionar = () => {
-        let redirecionar = true
+        ControlarBotão()
 
-        if
-        (
-            check1.checked === false &&
-            check2.checked === false &&
-            check3.checked === false &&
-            check4.checked === false &&
-            check5.checked === false &&
-            check6.checked === false
-        ){
-            redirecionar = false
-        } else {
-            redirecionar = true
-
-            if(check1.checked === true){
-                if(redirecionar === true){
-                    input1.value !== '' && parseFloat(input1.value) >= 100 ? redirecionar = true : redirecionar = false
-                }
-            }
-
-            if(check2.checked === true){
-                if(redirecionar === true){
-                    input2.value !== '' && parseFloat(input2.value) >= 38 ? redirecionar = true : redirecionar = false
-                }
-            }
-
-            if(check3.checked === true){
-                if(redirecionar === true){
-                    input3.value !== '' && parseFloat(input3.value) >= 142 ? redirecionar = true : redirecionar = false
-                }
-            }
-
-            if(check4.checked === true){
-                if(redirecionar === true){
-                    input4.value !== '' && parseFloat(input4.value) >= 0 ? redirecionar = true : redirecionar = false
-                }
-            }
-
-            if(check5.checked === true){
-                if(redirecionar === true){
-                    input5.value !== '' && parseFloat(input5.value) >= 0 ? redirecionar = true : redirecionar = false
-                }
-            }
-
-            if(check5.checked === true){
-                if(redirecionar === true){
-                    input5.value !== '' && parseFloat(input5.value) >= 0 ? redirecionar = true : redirecionar = false
-                }
-            }
-
-            if(check6.checked === true){
-                if(redirecionar === true){
-                    input6.value !== '' && parseFloat(input6.value) >= 0 ? redirecionar = true : redirecionar = false
-                }
-            }
-
-            if (redirecionar === true){
-                //window.location.href = `http://localhost:3000/Resultados/${userName}/${userSurname}`
+            if (ControlarBotão() === true){
                 window.location.href = `https://simuladormatematicafinanceira.onrender.com/Resultados/${userName}/${userSurname}`
             } else {
                 desativarBotao()
                 alert("Preencha os campos corretamente")
             }
-        }
     }
 
     return (
@@ -276,7 +263,7 @@ function Investir() {
 
             <section id='rendafixa'>
 
-            <span className="tittleSpan"><h1>Renda Fixa - R$ {valores.rendaFixaValue}</h1><h1>Valor R$</h1></span>
+            <span className="tittleSpan"><h1>Renda Fixa - R$ {valores.rendaFixaValue.toFixed(2)}</h1><h1>Valor R$</h1></span>
 
             <div>
 
@@ -289,7 +276,7 @@ function Investir() {
                 />
                 <span>CDB Nubank</span>
                 <input
-                type="number"
+                type="text"
                 onChange={(event) => handleInputChange(event, 'cdb1')}
                 placeholder="Minimo: R$100.00"
                 id='valorcdb1'
@@ -317,7 +304,7 @@ function Investir() {
                 <span>Tesouro Prefixado</span>
 
                 <input
-                    type="number"
+                    type="text"
                     onChange={(event) => handleInputChange(event, 'cdb2')}
                     placeholder="Minimo: R$38.03"
                     id='valorcdb2'
@@ -345,7 +332,7 @@ function Investir() {
                 />
                 <span>Tesouro SELIC</span>
                 <input
-                    type="number"
+                    type="text"
                     onChange={(event) => handleInputChange(event, 'cdb3')}
                     placeholder="Minimo: R$142.92"
                     id='valorcdb3'
@@ -363,7 +350,7 @@ function Investir() {
 
             <section id='rendavariavel'>
 
-            <span className="tittleSpan"><h1>Renda Variavel - R$ {valores.rendaVariavelValue}</h1><h1>Número de cotas</h1></span>
+            <span className="tittleSpan"><h1>Renda Variavel - R$ {valores.rendaVariavelValue.toFixed(2)}</h1><h1>Número de cotas</h1></span>
 
             <div>
 

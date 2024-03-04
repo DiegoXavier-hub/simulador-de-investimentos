@@ -11,6 +11,10 @@
     padding-top: 4vh;
 }
 
+.teste{
+    color: #ffaa8e;
+}
+
 #Investir #grafico{
     width: 25%;
     min-height: 96vh;
@@ -68,18 +72,40 @@
     justify-content: start;
 }
 
-#Investir input[type="number"]{
-    height: 30px;
-    width: 250px;
-    margin-left: 20%;
-}
-
 #Investir label{
     width: 85%;
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
+}
+
+#Investir input[type="text"]:disabled {
+    border: 1px solid white !important;
+}
+
+#Investir input[type="checkbox"]:checked + input[type="text"]{
+    opacity: 1;
+}
+
+#Investir input[type="text"]{
+    height: 30px;
+    width: 250px;
+    margin-left: 20%;
+}
+
+#Investir input[type="number"]{
+    height: 30px;
+    width: 250px;
+    margin-left: 20%;
+}
+
+#Investir input[type="number"]:disabled {
+    border: 1px solid white !important;
+}
+
+#Investir input:disabled::placeholder{
+    color: rgb(207, 207, 207)
 }
 
 #Investir input[type="checkbox"]:checked + input[type="number"]{
@@ -117,4 +143,31 @@ input:valid{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+}
+
+.papeis[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    outline: none;
+    cursor: pointer;
+}
+
+.papeis[type="checkbox"]:checked {
+    background-color: #ed6e43;
+    border: 1px solid #ff2d0d;
+}
+
+.papeis[type="checkbox"]:focus {
+    box-shadow: 0 0 0 1px #ad4e2e;
+}
+
+#Investir .btn{
+    opacity: 0.6;
+    transition: none;
+    cursor: no-drop;
 }
