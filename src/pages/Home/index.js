@@ -6,16 +6,6 @@ import '../../functions/valores.js'
 
 function Home(){
 
-    let Variaveis = {
-        tempoAplicacao: '2',
-        taxaAdministrativa: '0',
-        valorSelic: '0.1125',
-        valorCdi: '0.1286',
-        taxaSeguro: '0.002'
-    }
-
-    localStorage.setItem('Variaveis', JSON.stringify(Variaveis))
-
     return(
         <main id='Home'>
             

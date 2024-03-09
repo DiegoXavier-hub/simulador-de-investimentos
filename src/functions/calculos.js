@@ -1,5 +1,4 @@
 import './valores.js'
-import React, {useState, useEffect} from 'react'
 const investimentos = JSON.parse(localStorage.getItem("Investimentos"))
 const variaveis = JSON.parse(localStorage.getItem("Variaveis"))
 
