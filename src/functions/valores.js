@@ -4,7 +4,7 @@ import '../assets/css/config.css'
 
 function Config(){
 
-    const [tempoAplicacao, setTempoAplicacao] = useState('2')
+    const [tempoAplicacao, setTempoAplicacao] = useState('10')
     const [taxaAdministrativa, setTaxaAdministrativa] = useState('0')
     const [valorSelic, setValorSelic] = useState('0.1125')
     const [valorCdi, setValorCdi] = useState('0.1286')
