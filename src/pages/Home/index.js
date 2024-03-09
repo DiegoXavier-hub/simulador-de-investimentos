@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import '../../assets/css/home.css'
 import Grafico from "../../assets/images/grafico.png"
 import Ufu from "../../assets/images/ufu.png"
-import '../../functions/valores.js'
 
 function Home(){
 

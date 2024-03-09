@@ -75,11 +75,11 @@ function calcularImpostoRenda(rendimentoLiquido, tempoAplicacao) {
         valorLiquido,
         valorBruto: bruto
     }
+
+    console.log(CDB2)
     
     return CDB2
 }
-
-console.log(TesouroPrefixado())
 
 
 // const cdbNubank = ()=>{
