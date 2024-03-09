@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import axios from 'axios'
-import '../../functions/calculos'
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -295,7 +294,7 @@ function Investir() {
         ControlarBotão()
 
             if (ControlarBotão() === true){
-                window.location.href = `https://simuladormatematicafinanceira.onrender.com/Resultados/${userName}/${userSurname}`
+                window.location.href = `https://simuladormatematicafinanceira.onrender.com/Config/${userName}/${userSurname}`
             } else {
                 desativarBotao()
                 alert("Preencha os campos corretamente")

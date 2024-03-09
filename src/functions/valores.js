@@ -1,8 +1,11 @@
-import React, {useState} from 'react'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'
 import Menu from '../pages/Menu'
 import '../assets/css/config.css'
 
 function Config(){
+
+    let {userName, userSurname} = useParams()
 
     const [tempoAplicacao, setTempoAplicacao] = useState('10')
     const [taxaAdministrativa, setTaxaAdministrativa] = useState('0')
@@ -79,7 +82,11 @@ function Config(){
                 ></input>
             </label>
 
-            <button onClick={()=>{GuardarValores()}}>Salvar</button>
+            <button onClick={()=>{
+                    GuardarValores()
+                    window.location.href = `https://simuladormatematicafinanceira.onrender.com/Calcular/${userName}/${userSurname}`
+                }
+            }>Salvar</button>
 
         </main>
     )   
