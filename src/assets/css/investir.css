@@ -89,9 +89,10 @@
 }
 
 #Investir input[type="text"]{
-    height: 30px;
+    height: 4.5vh;
     width: 250px;
     margin-left: 20%;
+    border-radius: 3px;
 }
 
 #Investir input[type="number"]{

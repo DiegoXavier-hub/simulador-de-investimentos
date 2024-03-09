@@ -97,10 +97,10 @@
     background: #FF774A;
     color: rgb(255, 227, 247);
     padding: 10%;
-    padding-left: 15%;
+    padding-left: 10%;
     /* padding-left: 2.5em; */
     border-radius: 20px;
-    width: 250px;
+    width: 240px;
     clip-path: circle(4% at 5% 90%);
     transition: all .3s ease-in-out;
     position: relative;

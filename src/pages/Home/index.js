@@ -1,9 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import '../../assets/css/home.css'
 import Grafico from "../../assets/images/grafico.png"
 import Ufu from "../../assets/images/ufu.png"
+import '../../functions/valores.js'
 
 function Home(){
+
+    useEffect(()=>{
+
+        let Variaveis = {
+            tempoAplicacao: 2,
+            taxaAdministrativa: 0,
+            valorSelic: 0.1125,
+            valorCdi: 0.1286,
+            taxaSeguro: 0.002
+        }
+    
+        localStorage.setItem('Variaveis', JSON.stringify(Variaveis))
+    },[])
+
+
     return(
         <main id='Home'>
             

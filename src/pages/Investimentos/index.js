@@ -3,20 +3,23 @@ import '../../assets/css/investimentos.css'
 
 function Investimentos(){
     
-    // Data de hoje
-    const hoje = new Date();
-    const diaAtual = `${String(hoje.getDate()).padStart(2, '0')}/${String(hoje.getMonth() + 1).padStart(2, '0')}/${hoje.getFullYear()}`;
+    const diasRestantes = (data) => {
+        
+        const partesData = data.split('/');
+        const dia = parseInt(partesData[0], 10);
+        const mes = parseInt(partesData[1], 10) - 1; // Mês é base zero (janeiro = 0)
+        const ano = parseInt(partesData[2], 10);
     
-    // Data daqui a exatamente 10 anos
-    const dataDaqui10Anos = new Date();
-    dataDaqui10Anos.setFullYear(dataDaqui10Anos.getFullYear() + 10);
-    const dataFutura = `${String(dataDaqui10Anos.getDate()).padStart(2, '0')}/${String(dataDaqui10Anos.getMonth() + 1).padStart(2, '0')}/${dataDaqui10Anos.getFullYear()}`;
-
-    // Quantos dias de hoje até 10 anos à frente
-    const diffEmMilissegundos = dataDaqui10Anos - hoje;
-    const diasValor = Math.floor(diffEmMilissegundos / (1000 * 60 * 60 * 24));
-
-    const anoDaqui10Anos = dataDaqui10Anos.getFullYear();
+        const dataFornecida = new Date(ano, mes, dia);
+        const dataAtual = new Date();
+    
+        const diferencaEmMilissegundos = dataFornecida - dataAtual;
+    
+        const umDiaEmMilissegundos = 1000 * 60 * 60 * 24;
+        const diasRestantes = Math.ceil(diferencaEmMilissegundos / umDiaEmMilissegundos);
+    
+        return diasRestantes;
+    } 
 
     return(
         <main id='Investimentos'>
@@ -44,12 +47,12 @@ function Investimentos(){
 
                     <span>
                         <p>Data de vencimento</p>
-                        <p>{dataFutura}</p>
+                        <p>01-01-2026</p>
                     </span>
 
                     <span>
                         <p>Vence em</p>
-                        <p>{diasValor} dias</p>
+                        <p>{diasRestantes('01/01/2026')} dias</p>
                     </span>
 
                     <span>
@@ -94,7 +97,7 @@ function Investimentos(){
                 </div>
 
                 <div className='card'>
-                <h3>Tesouro Prefixado com Juros Semestrais {anoDaqui10Anos}</h3>
+                <h3>Tesouro Prefixado com Juros Semestrais 2033</h3>
                     <span>
                         <p>Investimento Mínimo</p>
                         <p>R$39,03</p>
@@ -112,12 +115,12 @@ function Investimentos(){
 
                     <span>
                         <p>Data de vencimento</p>
-                        <p>{dataFutura}</p>
+                        <p>01-01-2033</p>
                     </span>
 
                     <span>
                         <p>Vence em</p>
-                        <p>{diasValor} dias</p>
+                        <p>{diasRestantes('01/01/2033')} dias</p>
                     </span>
 
                     <span>
@@ -157,7 +160,7 @@ function Investimentos(){
                 </div>
 
                 <div className='card'>
-                <h3>Tesouro SELIC {anoDaqui10Anos}</h3>
+                <h3>Tesouro SELIC 2029</h3>
                     <span>
                         <p>Investimento Mínimo</p>
                         <p>R$142,92</p>
@@ -175,12 +178,12 @@ function Investimentos(){
 
                     <span>
                         <p>Data de vencimento</p>
-                        <p>{dataFutura}</p>
+                        <p>01-03-2029</p>
                     </span>
 
                     <span>
                         <p>Vence em</p>
-                        <p>{diasValor} dias</p>
+                        <p>{diasRestantes('01/03/2029')} dias</p>
                     </span>
 
                     <span>

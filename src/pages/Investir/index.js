@@ -4,39 +4,36 @@ import Menu from "../Menu"
 import React, { useEffect, useState } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import axios from 'axios'
+import '../../functions/calculos'
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function Investir() {
     
     const valores = {
-        rendaFixaValue: 10,
-        rendaVariavelValue: 30
+        rendaFixaValue: 0,
+        rendaVariavelValue: 0
     }
 
-    let {userInvestValue} = useParams()
-    let { userInvestType } = useParams()
-    let {userName} = useParams()
-    let { userSurname } = useParams()
+    let {userInvestValue, userInvestType, userName, userSurname} = useParams()
     let value1, value2 = 0
     userInvestValue = parseFloat(userInvestValue)
     
     if (userInvestType === '1') {
-        value1 =80
-        value2 =20
-        valores.rendaFixaValue = (userInvestValue * value1)/100
-        valores.rendaVariavelValue = (userInvestValue * value2)/100
+        value1 = 80
+        value2 = 20
+        
     } else if (userInvestType === '2') {
         value1 = 60
         value2 = 40
-        valores.rendaFixaValue = (userInvestValue * value1)/100
-        valores.rendaVariavelValue = (userInvestValue * value2)/100
     } else if (userInvestType === '3'){
         value1 = 30
         value2 = 70
-        valores.rendaFixaValue = (userInvestValue * value1)/100
-        valores.rendaVariavelValue = (userInvestValue * value2)/100
     }
+
+    valores.rendaFixaValue = (userInvestValue * value1)/100
+    valores.rendaVariavelValue = (userInvestValue * value2)/100
 
     const data = {
         labels: ['Renda Fixa', 'Renda Variável'],
@@ -50,8 +47,8 @@ function Investir() {
                 '#e75b2c',
                 ],
                 borderColor: [
-                'rgb(199, 250, 187)',
-                '#ffaa8e',
+                '#fff',
+                '#fff',
                 ],
                 borderWidth: 1,
             },
@@ -78,9 +75,6 @@ function Investir() {
     });
 
     const GuardarValores = () => {
-        investimentos.acao1 = parseInt(investimentos.acao1)
-        investimentos.acao2 = parseInt(investimentos.acao2)
-        investimentos.acao3 = parseInt(investimentos.acao3)
         localStorage.setItem("Investimentos", JSON.stringify(investimentos))
     }
 
@@ -117,8 +111,35 @@ function Investir() {
         button.style.transition = 'none';
     }
 
+    const [vale3, setVale3] = useState(0.00)
+    const [itub4, setItub4] = useState(0.00)
+    const [bbas3, setBbas3] = useState(0.00)
+
+    let [valorAcao1, setValorAcao1] = useState(vale3)
+    let [valorAcao2, setValorAcao2] = useState(itub4)
+    let [valorAcao3, setValorAcao3] = useState(bbas3)
+
     const ControlarBotão = () => {
         let redirecionar = true
+
+        const partesInput1 = input1.value.split(';');
+        const partesInput2 = input2.value.split(';');
+        const partesInput3 = input3.value.split(';');
+
+        setValorAcao1(vale3)
+        if(investimentos.acao1 >= 0 && investimentos.acao1 != ''){
+            setValorAcao1(investimentos.acao1*vale3)
+        }
+        
+        setValorAcao2(itub4)
+        if(investimentos.acao2 >= 0 && investimentos.acao2 != ''){
+            setValorAcao2(investimentos.acao2*itub4)
+        }
+
+        setValorAcao3(bbas3)
+        if(investimentos.acao3 >= 0 && investimentos.acao3 != ''){
+            setValorAcao3(investimentos.acao3*bbas3)
+        }
 
         if
         (
@@ -135,7 +156,7 @@ function Investir() {
 
             if(check1.checked === true){
                 if(redirecionar === true){
-                    if(input1.value !== '' && parseFloat(input1.value) >= 100)
+                    if(partesInput1[0].value !== '' && parseFloat(partesInput1[0]) >= 100)
                     { 
                         redirecionar = true
                         input1.style.border = "2px solid green"
@@ -148,7 +169,7 @@ function Investir() {
 
             if(check2.checked === true){
                 if(redirecionar === true){
-                    if(input2.value !== '' && parseFloat(input2.value) >= 38.03)
+                    if(partesInput2[0].value !== '' && parseFloat(partesInput2[0]) >= 38.03)
                     { 
                         redirecionar = true
                         input2.style.border = "2px solid green"
@@ -161,7 +182,7 @@ function Investir() {
 
             if(check3.checked === true){
                 if(redirecionar === true){
-                    if(input3.value !== '' && parseFloat(input3.value) >= 142.92)
+                    if(partesInput3[0].value !== '' && parseFloat(partesInput3[0]) >= 142.92)
                     { 
                         redirecionar = true
                         input3.style.border = "2px solid green"
@@ -212,6 +233,7 @@ function Investir() {
             }
 
             if (redirecionar === true){
+                button.style.cursor = 'pointer';
                 button.style.opacity = '1';
                 button.style.transition = 'all 0.3';
                 return true
@@ -240,6 +262,33 @@ function Investir() {
     useEffect(()=>{
         atualizarComponente()
         ControlarBotão()
+
+        const fetchData = async () => {
+            const symbols = ['VALE3', 'ITUB4', 'BBAS3']
+            for (let symbol of symbols){
+                try{
+                    const response = await axios.get(`https://brapi.dev/api/quote/${symbol}?token=azdVoKdmnG7896qe5DSC1r`)
+                    const stockData = response.data.results[0]
+                    switch(symbol){
+                        case 'VALE3':
+                            setVale3(stockData.regularMarketPrice)
+                            break
+                        case 'ITUB4':
+                            setItub4(stockData.regularMarketPrice)
+                            break
+                        case 'BBAS3':
+                            setBbas3(stockData.regularMarketPrice)
+                            break
+                        default:
+                            break
+                    }
+                } catch (error) {
+                    alert("fetching error: ", error)
+                }
+            }
+        }
+
+        fetchData()
     })
 
     const Redirecionar = () => {
@@ -263,7 +312,7 @@ function Investir() {
 
             <section id='rendafixa'>
 
-            <span className="tittleSpan"><h1>Renda Fixa - R$ {valores.rendaFixaValue.toFixed(2)}</h1><h1>Valor R$</h1></span>
+            <span className="tittleSpan"><h1>Renda Fixa - R$ {valores.rendaFixaValue.toFixed(2)}</h1><h1>Valor; Aportes (R$)</h1></span>
 
             <div>
 
@@ -278,7 +327,7 @@ function Investir() {
                 <input
                 type="text"
                 onChange={(event) => handleInputChange(event, 'cdb1')}
-                placeholder="Minimo: R$100.00"
+                placeholder="Minimo: R$100.00; R$00.00"
                 id='valorcdb1'
                 className='valores'
                 min='100'
@@ -306,7 +355,7 @@ function Investir() {
                 <input
                     type="text"
                     onChange={(event) => handleInputChange(event, 'cdb2')}
-                    placeholder="Minimo: R$38.03"
+                    placeholder="Minimo: R$38.03; R$00.00"
                     id='valorcdb2'
                     className='valores'
                     min='38'
@@ -334,7 +383,7 @@ function Investir() {
                 <input
                     type="text"
                     onChange={(event) => handleInputChange(event, 'cdb3')}
-                    placeholder="Minimo: R$142.92"
+                    placeholder="Minimo: R$142.92; R$00.00"
                     id='valorcdb3'
                     className='valores'
                     min='142'
@@ -361,16 +410,17 @@ function Investir() {
                     id='acao1'
                     className='papeis'
                 />
-                <span>VALE3</span>
+                <span>VALE3 - <br/>R$ {parseFloat(investimentos.acao1) <=1 ? vale3 : valorAcao1.toFixed(2)}</span>
                 <input
                 type="number"
                 onChange={(event) => handleInputChange(event, 'acao1')}
-                placeholder="0"
+                placeholder={'R$ ' + vale3}
                 id='valoracao1'
                 className='valores'
                 min='1'
                 required
                 disabled
+                
                 />
                 </label>
 
@@ -388,12 +438,12 @@ function Investir() {
                     id='acao2'
                     className='papeis'
                 />
-                <span>ITUB4</span>
+                <span>ITUB4 - <br/>R$ {parseFloat(investimentos.acao2) <=1 ? itub4 : valorAcao2.toFixed(2)}</span> 
 
                 <input
                     type="number"
                     onChange={(event) => handleInputChange(event, 'acao2')}
-                    placeholder="0"
+                    placeholder={'R$ ' + itub4}
                     id='valoracao2'
                     className='valores'
                     min='1'
@@ -417,12 +467,12 @@ function Investir() {
                     id='acao3'
                     className='papeis'
                 />
-                <span>BBAS3</span>
+                <span>BBAS3 -<br/> R$ {parseFloat(investimentos.acao3) <=1 ? bbas3 : valorAcao3.toFixed(2)}</span> 
 
                 <input
                     type="number"
                     onChange={(event) => handleInputChange(event, 'acao3')}
-                    placeholder="0"
+                    placeholder={'R$ ' + bbas3}
                     id='valoracao3'
                     className='valores'
                     min='1'
