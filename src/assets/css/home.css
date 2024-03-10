@@ -38,3 +38,25 @@
     line-height: 1.8;
     color: #ffffff;
 }
+
+@media (max-width: 888px){
+
+    #Home h1{
+        font-size: 4rem;
+    }
+
+    
+    #Home .ufu, img{
+        display: none;
+    }
+
+    #Home #content{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        padding-left: 5%;
+        margin-top: 15%;
+        padding-bottom: 5%;
+    }
+
+}

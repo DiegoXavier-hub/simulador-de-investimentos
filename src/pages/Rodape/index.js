@@ -3,9 +3,9 @@ import '../../assets/css/rodape.css'
 
 function Rodape(){
     return(
-        <section id="Rodape">
+        <main id="Rodape">
             <p>© Todos os direitos reservados  ;-)</p>
-        </section>
+        </main>
     )
 }
 

@@ -1,6 +1,7 @@
 import "../../assets/css/investir.css"
 import { useParams } from 'react-router-dom'
 import Menu from "../Menu"
+import Rodape from "../Rodape"
 import React, { useEffect, useState } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
@@ -118,6 +119,18 @@ function Investir() {
     let [valorAcao2, setValorAcao2] = useState(itub4)
     let [valorAcao3, setValorAcao3] = useState(bbas3)
 
+    function verificarPontoEVirgula(string) {
+        return /;[^;]*$/.test(string);
+    }
+
+    function verificarValorAntesDoPontoEVirgula(string) {
+        return /[^;]+;/.test(string);
+    }
+
+    function verificaInteiro(string) {
+        return /^\d+$/.test(string);
+    }
+
     const ControlarBotão = () => {
         let redirecionar = true
 
@@ -154,6 +167,12 @@ function Investir() {
             redirecionar = true
 
             if(check1.checked === true){
+                if(verificarPontoEVirgula(input1.value) === false){
+                    input1.value = input1.value + ';0'
+                }else if(verificarValorAntesDoPontoEVirgula(input1.value)===false){
+                    input1.value = '0' + input1.value
+                }
+                
                 if(redirecionar === true){
                     if(partesInput1[0].value !== '' && parseFloat(partesInput1[0]) >= 100)
                     { 
@@ -167,6 +186,11 @@ function Investir() {
             }
 
             if(check2.checked === true){
+                if(verificarPontoEVirgula(input2.value) === false){
+                    input2.value = input2.value + ';0'
+                }else if(verificarValorAntesDoPontoEVirgula(input2.value)===false){
+                    input2.value = '0' + input2.value
+                }
                 if(redirecionar === true){
                     if(partesInput2[0].value !== '' && parseFloat(partesInput2[0]) >= 38.03)
                     { 
@@ -175,11 +199,16 @@ function Investir() {
                     } else {
                         redirecionar = false
                         input2.style.border = "1px solid red"
-                    } 
+                    }
                 }
             }
 
             if(check3.checked === true){
+                if(verificarPontoEVirgula(input3.value) === false){
+                    input3.value = input3.value + ';0'
+                }else if(verificarValorAntesDoPontoEVirgula(input3.value)===false){
+                    input3.value = '0' + input3.value
+                }
                 if(redirecionar === true){
                     if(partesInput3[0].value !== '' && parseFloat(partesInput3[0]) >= 142.92)
                     { 
@@ -188,13 +217,13 @@ function Investir() {
                     } else {
                         redirecionar = false
                         input3.style.border = "1px solid red"
-                    } 
+                    }
                 }
             }
 
             if(check4.checked === true){
                 if(redirecionar === true){
-                    if(input4.value !== '' && parseInt(input4.value) >= 1)
+                    if(input4.value !== '' && parseInt(input4.value) >= 1 && verificaInteiro(input4.value))
                     { 
                         redirecionar = true
                         input4.style.border = "2px solid green"
@@ -207,7 +236,7 @@ function Investir() {
 
             if(check5.checked === true){
                 if(redirecionar === true){
-                    if(input5.value !== '' && parseInt(input5.value) >= 1)
+                    if(input5.value !== '' && parseInt(input5.value) >= 1 && verificaInteiro(input5.value))
                     { 
                         redirecionar = true
                         input5.style.border = "2px solid green"
@@ -220,7 +249,7 @@ function Investir() {
 
             if(check6.checked === true){
                 if(redirecionar === true){
-                    if(input6.value !== '' && parseInt(input6.value) >= 1)
+                    if(input6.value !== '' && parseInt(input6.value) >= 1 && verificaInteiro(input6.value))
                     { 
                         redirecionar = true
                         input6.style.border = "2px solid green"
@@ -297,7 +326,11 @@ function Investir() {
                 window.location.href = `https://simuladormatematicafinanceira.onrender.com/Config/${userName}/${userSurname}`
             } else {
                 desativarBotao()
-                alert("Preencha os campos corretamente")
+                if(!verificaInteiro(input4.value) || !verificaInteiro(input5.value) || !verificaInteiro(input6.value)){
+                    alert("O número de cotas de ações deve ser um número inteiro")
+                }else{
+                    alert("Preencha os campos corretamente")
+                }
             }
     }
 
@@ -413,7 +446,7 @@ function Investir() {
                 <input
                 type="number"
                 onChange={(event) => handleInputChange(event, 'acao1')}
-                placeholder={'R$ ' + vale3}
+                placeholder={'Preço por cota: R$ ' + vale3}
                 id='valoracao1'
                 className='valores'
                 min='1'
@@ -442,7 +475,7 @@ function Investir() {
                 <input
                     type="number"
                     onChange={(event) => handleInputChange(event, 'acao2')}
-                    placeholder={'R$ ' + itub4}
+                    placeholder={'Preço por cota: R$ ' + itub4}
                     id='valoracao2'
                     className='valores'
                     min='1'
@@ -471,7 +504,7 @@ function Investir() {
                 <input
                     type="number"
                     onChange={(event) => handleInputChange(event, 'acao3')}
-                    placeholder={'R$ ' + bbas3}
+                    placeholder={'Preço por cota: R$ ' + bbas3}
                     id='valoracao3'
                     className='valores'
                     min='1'
@@ -502,7 +535,7 @@ function Investir() {
             {value2}<h3>% em Renda Variavel</h3> <br/>
             </div>
         </section>
-        
+
         </main>
     );
 }

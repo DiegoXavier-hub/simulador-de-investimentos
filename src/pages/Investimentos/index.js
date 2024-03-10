@@ -250,7 +250,6 @@ function Investimentos(){
                     </span>
                 </div>
 
-
                 <div className='card'>
                     <h3>ITUB4</h3>
                     <h1>Variação dessa ação hoje</h1>
@@ -274,7 +273,6 @@ function Investimentos(){
                         <p>Preferenciais</p>
                     </span>
                 </div>
-
 
                 <div className='card'>
                     <h3>BBAS3</h3>

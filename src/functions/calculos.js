@@ -48,10 +48,10 @@ function Calcular(){
         let totalTaxaAdministrativa = 0
 
 
-        let totalBruto = (valorInvestido+aportesMensais*tempoAplicacao*12)*(1+taxaCDB)**tempoAplicacao
+        let totalBruto = (valorInvestido+aportesMensais*tempoAplicacao*11)*(1+taxaCDB)**tempoAplicacao
 
         for(let i =1;i<=tempoAplicacao;i++){
-            valorInvestidoComOTempo = (valorInvestido+aportesMensais*i*12)// ja ta acumulando
+            valorInvestidoComOTempo = (valorInvestido+aportesMensais*i*11)// ja ta acumulando
             totalTaxaAdministrativa += valorInvestidoComOTempo*taxaAdministrativa
             TaxaCustodiaValor += valorInvestidoComOTempo * taxaCustodia*2
         }
@@ -116,8 +116,8 @@ function Calcular(){
     
         for(let i=1; i<=tempoSemestral; i++){
 
-            totalDoPeriodo = (valorInvestido + aportesMensais * 6 * i)*(1+taxaCDB)
-            valorInvestidoComOTempo = (valorInvestido + aportesMensais * 6 * i)
+            totalDoPeriodo = (valorInvestido + aportesMensais * ((6 * i)-1))*(1+taxaCDB)
+            valorInvestidoComOTempo = (valorInvestido + aportesMensais * ((6 * i)-1))
             TaxaCustodiaValor += (valorInvestidoComOTempo * taxaCustodia)
             rendimentoDoPeriodo = (totalDoPeriodo - valorInvestidoComOTempo)
             rendimentoTotal += rendimentoDoPeriodo
@@ -183,8 +183,8 @@ function Calcular(){
         let totalTaxaAdministrativa = 0
 
         for(let i =1; i<=tempoAplicacao; i++){
-            valorInvestidoComOTempo = (valorInvestido + aportesMensais * i)
-            totalDoPeriodo = (valorInvestido + aportesMensais * i) * (1 + taxaCDB)
+            valorInvestidoComOTempo = (valorInvestido + aportesMensais * (i-1))
+            totalDoPeriodo = (valorInvestido + aportesMensais * (i-1)) * (1 + taxaCDB)
             rendimentoDoPeriodo =  totalDoPeriodo - valorInvestidoComOTempo
             rendimentoTotal += rendimentoDoPeriodo
             

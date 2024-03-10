@@ -6,3 +6,20 @@ iframe, canvas{
     width: 100% !important;
     height: 80vh !important;
 }
+
+@media (max-width: 888px){
+
+    .tradingview-widget-container{
+        height: 60vh !important;
+    }
+
+}
+
+@media (max-width: 500px){
+
+    .tradingview-widget-container{
+        height: 60vh !important;
+    }
+
+}
+

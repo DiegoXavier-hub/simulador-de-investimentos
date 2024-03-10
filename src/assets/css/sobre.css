@@ -1,14 +1,16 @@
-main{
+#Sobre{
     width: 100%;
+    height: max-content;
     position: relative;
     color: #d9d9d9;
+    overflow-y: hidden;
 }
 
-main ul{
+#Sobre ul{
     list-style: none;
 }
 
-.header{
+#Sobre .header{
     background-color: #F3DD6B;
     display: flex;
     align-items: center;
@@ -19,60 +21,99 @@ main ul{
     color: #000000;
 }
 
-.header h1{
+#Sobre .header h1{
     font-size: 3rem;
     padding-bottom: 15px;
 }
 
-.header h3{
+#Sobre .header h3{
     font-size: 2rem;
     
 }
 
-.section{
+#Sobre .section{
     background-color: #161630;
     height: 500px;
     padding: 2%;
-    
 }
 
-.section .involved{
+#Sobre .section .involved{
     display:flex ;
     flex-direction: row;
     justify-content: space-between;   
 }
 
-.section .involved .sobre-img{
+#Sobre .section .involved .sobre-img{
     background: url("../images/sobre.png") no-repeat center center;
     background-size: contain;
-    width: 600px;
+    width: 550px;
     margin-top: -30vh;
     margin-right: -10%;
 }
 
-.section .involved .persons li{
+#Sobre .section .involved .persons li{
     padding: 7px;
     font-size: 1.6rem;
 }
 
-.section .involved .persons li:first-child{
+#Sobre .section .involved .persons li:first-child{
     padding-bottom: 17px;
 }
 
-.section .involved .persons li a {
+#Sobre .section .involved .persons li a {
     color: #d9d9d9;
     transition: 0.3s ease-in-out;
 }
 
-.section .involved .persons li a:hover {
+#Sobre .section .involved .persons li a:hover {
     text-decoration: underline;
     color: #ffffff;
 }
 
-.section .involved .persons:last-child li:nth-last-child(2){
+#Sobre .section .involved .persons:last-child li:nth-last-child(2){
     margin: 13px 0;
 }
 
-.section .involved .persons:last-child{
+#Sobre .section .involved .persons:last-child{
     text-align: right;
 }
+
+@media (max-width: 888px){
+
+    #Sobre .section .involved .sobre-img{
+        display: none;
+    }
+
+    #Sobre .header{
+        height: 30vh;
+    }
+
+}
+
+@media (max-width: 600px){
+
+    #Sobre{
+        width: 100%;
+        position: relative;
+        color: #d9d9d9;
+        height: 100vh;
+    }
+
+    #Sobre .section, .involved{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .persons{
+        width: 100%;
+    }
+
+    #Sobre .section .involved .persons:last-child{
+        text-align: left;
+    }
+
+}
+
