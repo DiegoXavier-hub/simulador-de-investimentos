@@ -5,10 +5,12 @@ import Cadastro from './pages/Cadastro'
 import Investir from './pages/Investir'
 import Config from './functions/valores.js'
 import Calcular from './functions/calculos.js'
+import Menu from './pages/Menu'
 
 function RoutesApp() {
     return(
         <BrowserRouter>
+        <Menu/>
             <Routes>
                 <Route path="/" element={<App/>}/>
                 <Route path="/Config/:userName/:userSurname/" element={<Config/>}/>

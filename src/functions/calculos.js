@@ -4,6 +4,7 @@ import '../assets/css/calcular.css'
 import './valores.js'
 const investimentos = JSON.parse(localStorage.getItem("Investimentos"))
 const variaveis = JSON.parse(localStorage.getItem("Variaveis"))
+console.log(investimentos)
 
 function Calcular(){
 
@@ -36,8 +37,12 @@ function Calcular(){
 
         const valorDoCdi = parseFloat(variaveis.valorCdi)
         const tempoAplicacao = parseFloat(variaveis.tempoAplicacao);
-        const valorInvestido = parseFloat(investimentos.cdb1.split(';')[0])
-        const aportesMensais = parseFloat(investimentos.cdb1.split(';')[1])
+        let aportesMensais = 0
+        let valorInvestido = 0
+        if(investimentos.cdb1 != 0){
+            aportesMensais = parseFloat((investimentos.cdb1).split(';')[1])
+            valorInvestido = parseFloat((investimentos.cdb1).split(';')[0])
+        }
         const taxaCustodia = parseFloat(variaveis.taxaCustodia)*2
         const taxaAdministrativa = parseFloat(variaveis.taxaAdministrativa) * tempoAplicacao
         const taxaCDB = 1.07*valorDoCdi;
@@ -100,8 +105,12 @@ function Calcular(){
 
         const tempoAplicacao = parseFloat(variaveis.tempoAplicacao);
         const taxaAdministrativa = parseFloat(variaveis.taxaAdministrativa)
-        const valorInvestido = parseFloat(investimentos.cdb2.split(';')[0])
-        const aportesMensais = parseFloat(investimentos.cdb2.split(';')[1])
+        let aportesMensais = 0
+        let valorInvestido = 0
+        if(investimentos.cdb2 != 0){
+            aportesMensais = parseFloat((investimentos.cdb2).split(';')[1])
+            valorInvestido = parseFloat((investimentos.cdb2).split(';')[0])
+        }
         const taxaCustodia = parseFloat(variaveis.taxaCustodia)
         const tempoSemestral = parseFloat(tempoAplicacao)*2;
         const taxaCDB = 0.1064/2;
@@ -169,8 +178,12 @@ function Calcular(){
         const tempoAplicacao = parseFloat(variaveis.tempoAplicacao)*12;
         const taxaSelic = parseFloat(variaveis.valorSelic)
         const taxaAdministrativa = parseFloat(variaveis.taxaAdministrativa)
-        const valorInvestido = parseFloat(investimentos.cdb3.split(';')[0])
-        const aportesMensais = parseFloat(investimentos.cdb3.split(';')[1])
+        let aportesMensais = 0
+        let valorInvestido = 0
+        if(investimentos.cdb2 != 0){
+            aportesMensais = parseFloat((investimentos.cdb2).split(';')[1])
+            valorInvestido = parseFloat((investimentos.cdb2).split(';')[0])
+        }
         const taxaCustodia = parseFloat(variaveis.taxaCustodia)
         const taxaCDB = taxaSelic/12 + (0.15/12)/100 //0.0095
 
@@ -243,7 +256,7 @@ function Calcular(){
         resultados.cdb2 = TesouroPrefixado()
         resultados.cdb3 = TesouroSelic()
         localStorage.setItem("Resultados", JSON.stringify(resultados))
-        window.location.href = `https://simuladormatematicafinanceira.onrender.com/Resultados/${userName}/${userSurname}`
+        //window.location.href = `https://simuladormatematicafinanceira.onrender.com/Resultados/${userName}/${userSurname}`
     })
 
     return(

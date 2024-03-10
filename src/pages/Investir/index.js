@@ -1,7 +1,5 @@
 import "../../assets/css/investir.css"
 import { useParams } from 'react-router-dom'
-import Menu from "../Menu"
-import Rodape from "../Rodape"
 import React, { useEffect, useState } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
@@ -337,7 +335,6 @@ function Investir() {
     return (
 
         <main id='Investir'>
-        <Menu/>
         <section id='content'>
 
         <h1>Vamos Investir</h1>

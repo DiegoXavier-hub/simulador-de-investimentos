@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
-import Menu from '../pages/Menu'
 import '../assets/css/config.css'
 
 function Config(){
@@ -29,7 +28,6 @@ function Config(){
     
     return(
         <main id="Config">
-            <Menu></Menu>
             <h1>CONFIGURAÇÕES</h1>
 
             <label>

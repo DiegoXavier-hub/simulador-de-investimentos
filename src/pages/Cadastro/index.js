@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Menu from "../Menu"
 import Rodape from '../Rodape'
 import "../../assets/css/cadastro.css"
 import primeirasPerguntas from '../../assets/images/primeiras-perguntas.png'
@@ -75,7 +74,6 @@ function Cadastro(){
 
     return(
         <main id='Cadastro'>
-            <Menu/>
             <div className='content'>
                 <div className='inputs'>
                     <h1>VAMOS COMEÇAR...</h1>
