@@ -5,11 +5,11 @@ import Logo from "../../assets/images/logo.png"
 
 function Menu(){
     return(
-        <nav id='menu'>
-            <div className='mobile-menu' id='mobile-menu' onClick={
+        <nav id='Menu'>
+            <div className='mobile-Menu' id='mobile-Menu' onClick={
                 ()=>{
-                    document.getElementById("menu-back").classList.toggle("activated")
-                    document.getElementById("menu-items").classList.toggle("activated")
+                    document.getElementById("Menu-back").classList.toggle("activated")
+                    document.getElementById("Menu-items").classList.toggle("activated")
                 }
             }>
                 <div className='line1'></div>
@@ -17,9 +17,9 @@ function Menu(){
                 <div className='line3'></div>
             </div>
             
-            <div className='menu-back' id='menu-back'></div>
+            <div className='Menu-back' id='Menu-back'></div>
 
-            <ul className='menu' id='menu-items'>
+            <ul className='Menu' id='Menu-items'>
                 <li className='logo'><a href='https://simuladormatematicafinanceira.onrender.com/' id='logo'><img src={Logo} alt="logo">
                     </img><span><h3>PROSPER</h3><h3>INVEST</h3></span></a>
                 </li>

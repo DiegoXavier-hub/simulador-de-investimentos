@@ -1,9 +1,9 @@
-#menu{
+#Menu{
     display: block !important;
-    z-index: 2;
+    z-index: 5;
 } 
 
-.menu-back{
+.Menu-back{
     width: 100%;
     height: 50px;
     background-color: #000000;
@@ -11,6 +11,7 @@
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 5;
 }
 
 #logo span{
@@ -20,7 +21,7 @@
     margin-left: 3px;
 }
 
-.menu span h3{
+.Menu span h3{
     font-size: 1rem !important;
     margin: 0;
     padding: 0;
@@ -30,7 +31,7 @@
     width: 30px;
 }
 
-.menu{
+.Menu{
     width: 100%;
     height: 50px;
     margin-top: -6.1vh;
@@ -42,9 +43,10 @@
     left: 0;
     top: 6.4vh;
     list-style: none;
+    z-index: 5;
 }
 
-.menu li{
+.Menu li{
     width: 10%;
     height: 70%;
     display: flex;
@@ -52,7 +54,7 @@
     justify-content: center;
 }
 
-.menu a{
+.Menu a{
     text-decoration: none;
     color: #d9d9d9;
     font-size: 1.4rem;
@@ -67,7 +69,7 @@
     letter-spacing: 1px;
 }
 
-.menu a:hover{
+.Menu a:hover{
     border-bottom: 1px solid #ffffff82;
     cursor: pointer;
     font-weight: 100;
@@ -75,18 +77,18 @@
     user-select: none;
 }
 
-.menu .logo *:hover{
+.Menu .logo *:hover{
     cursor: pointer;
 }
 
-.menu .logo a:hover{
+.Menu .logo a:hover{
     border-bottom: 1px solid #00000000;
     cursor: pointer;
     font-weight: 100;
     font-size: 1.4rem;
 }
 
-.mobile-menu{
+.mobile-Menu{
     position: fixed;
     width: 33px;
     height: 33px;
@@ -96,7 +98,7 @@
     display: none !important;
 }
 
-.mobile-menu div {
+.mobile-Menu div {
     width: 28px;
     height: 3px;
     background: #d9d9d9;
@@ -111,11 +113,11 @@
 
 @media screen and (max-width: 769px) {
 
-    .menu a{
+    .Menu a{
         font-size: 14px;
     }
 
-    .menu a:hover{
+    .Menu a:hover{
         border-bottom: 1px solid #ffffff82;
         cursor: pointer;
         font-weight: bold;
@@ -125,11 +127,11 @@
 
 @media screen and (max-width: 671px) {
 
-    .mobile-menu{
+    .mobile-Menu{
         display: block !important;
     }
 
-    .menu-back{
+    .Menu-back{
         width: 55%;
         height: 100%;
         background-color: #000000;
@@ -141,7 +143,7 @@
         transition: transform 0.3s ease-in;
     }
 
-    .menu{
+    .Menu{
         width: 100%;
         height: 100vh;
         margin-top: 7%;
@@ -159,7 +161,7 @@
         transition: transform 0.4s ease-in;
     }
 
-    .menu li{
+    .Menu li{
         width: 50%;
         height: 8%;
         display: flex;
@@ -168,7 +170,7 @@
         margin-bottom: 5%;
     }
 
-    .menu a{
+    .Menu a{
         width: 100%;
         height: 100%;
         display: flex;
@@ -180,7 +182,7 @@
         letter-spacing: 1px;
     }
 
-    .li-logo-menu{
+    .li-logo-Menu{
         width: 100% !important;
         height: 300px !important;
         display: flex;
@@ -189,7 +191,7 @@
         flex-direction: column;
     }
 
-    .logo-menu{
+    .logo-Menu{
         display: block;
         margin-bottom: 30px;
         margin-top: 10%;
@@ -200,7 +202,7 @@
         background-position: center center;
     }
 
-    .insta-menu, .facebook-menu{
+    .insta-Menu, .facebook-Menu{
         width: 35px !important;
         height: 35px !important;
         margin-bottom: 10px;

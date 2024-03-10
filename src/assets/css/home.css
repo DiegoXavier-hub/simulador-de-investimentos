@@ -19,6 +19,7 @@
     position: absolute;
     right: 1.5%;
     top: 70px;
+    z-index: 1;
 }
 
 #Home #content{
