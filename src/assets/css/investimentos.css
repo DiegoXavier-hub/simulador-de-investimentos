@@ -144,3 +144,9 @@
     margin: 5%;
 }
 
+
+@media (max-width:1000px){
+    #Investimentos .invest-group .card .ir .tooltip:hover {
+        right: -20%;
+    }
+}

@@ -123,7 +123,7 @@
     margin-bottom: 5%;
 }
 
-canvas {
+#Investir canvas {
     color: #fff !important;
 }
 
@@ -131,13 +131,6 @@ input{
     padding-left: 1%;
 }
 
-input:invalid{
-    border: 1px solid red;
-}
-
-input:valid{
-    border: 2px solid green;
-}
 
 .tittleSpan{
     width: 85% !important;
@@ -171,4 +164,149 @@ input:valid{
     opacity: 0.6;
     transition: none;
     cursor: no-drop;
+}
+
+
+
+@media (max-width: 1200px) {
+    #Investir #content section h1 {
+        font-size: 2rem;
+    }
+
+    #Investir #content section span {
+        font-size: 1.7rem;
+    }
+
+    #Investir #content section .valores[type="text"],
+    #Investir #content section .valores[type="number"] {
+        width: 200px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 875px) {
+    #Investir {
+        flex-direction: column-reverse;
+        justify-content: start;
+    }
+
+    #Investir #content {
+        align-items: center;
+        text-align: center;
+        width: 80%;
+    }
+
+    #Investir #content > h1 {
+        margin: 0 auto;
+    }
+
+    #Investir #content section {
+        align-items: center;
+    }
+
+    #Investir #content label {
+        margin: 0 auto;
+    }
+
+    #Investir #grafico {
+        min-height: 10vh;
+        width: 70%;
+        margin-top: 7%;
+    }
+
+    #Investir #grafico div {
+        text-align: end;
+        width: 60%;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #Investir #grafico div h3:first-child {
+        margin-top: 15px;
+    }
+
+    #Investir #grafico div h3 {
+        font-size: 1.7rem;
+        text-align: center;
+    }
+
+    #Investir #grafico h1 {
+        font-size: 2.3rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 560px) {
+    #Investir #grafico div h3 {
+        font-size: 1.4rem;
+    }
+
+    
+
+    #Investir #content > h1 {
+        font-size: 3rem;
+    }
+
+    #Investir #content section h1 {
+        font-size: 1.7rem;
+        width: 40%;
+        
+
+    }
+
+    #Investir #content {
+        width: 90%;
+    }
+
+
+    #Investir #content section{
+        width: 100%;
+    }
+
+    #Investir #content section label  {
+        width: 100%;
+
+    }
+
+    #Investir #content section{
+        margin-bottom: 30px;
+    }
+
+    #Investir #content .tittleSpan{
+        width: 100% !important;
+        
+        
+    }
+
+    #Investir #content .tittleSpan h1:last-child{
+        text-align: end ;
+    }
+
+   
+
+    #Investir #content section label span {
+        font-size: 1.4rem;
+        margin-left: 5px;
+        width: 200px;
+        
+    }
+
+    #Investir input[type="checkbox"] {
+        min-width: 15px;
+    }
+
+    #Investir #content section .valores[type="text"],
+    #Investir #content section .valores[type="number"],
+    #Investir #content section .valores[type="text"]::placeholder,
+    #Investir #content section .valores[type="number"]::placeholder {
+        width: 150px;
+        height: 30px;
+        font-size: 1rem;
+    }
+
+    #Investir .btn{
+        width: 50%;
+        margin-top: 50px;
+    }
 }

@@ -96,3 +96,105 @@
 img{
     width: 100%;
 }
+
+
+
+
+@media (max-width: 1110px) {
+    img {
+        width: 75%;
+    }
+    .design {
+        margin-bottom: 20%;
+        text-align: center;
+    }
+
+    #Cadastro .content .inputs section input[type="text"]::placeholder {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 870px) {
+    .design {
+        display: none;
+    }
+
+    #Cadastro .content h1 {
+        text-align: center;
+    }
+
+    #Cadastro .content #DataInvestGroup {
+        justify-content: center;
+    }
+
+    #Cadastro .content #DataInvestGroup section {
+        text-align: center;
+    }
+
+    #Cadastro .content #DataInvestGroup section:last-child label {
+        width: 110%;
+        margin-left: -7px;
+        text-align: center;
+    }
+
+    #Cadastro .content #DataInvestGroup section input {
+        width: 100%;
+    }
+
+    #Cadastro #PerfilInvestGroup h4 {
+        text-align: center;
+    }
+
+    #Cadastro #PerfilInvestGroup .perfil {
+        margin: 40px 30%;
+        height: auto;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #Cadastro #cadastroButtom {
+        margin: 0 auto;
+    }
+    #Cadastro .content .inputs section input[type="text"]::placeholder {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 650px) {
+    #Cadastro .content {
+        height: 94.1vh;
+    }
+}
+
+@media (max-width: 530px) {
+    #Cadastro .content #DataInvestGroup {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    #Cadastro .content #DataInvestGroup section:first-child {
+        margin-top: 0;
+    }
+
+    #Cadastro .content #DataInvestGroup section {
+        width: 70%;
+    }
+
+    #Cadastro #PerfilInvestGroup h4 {
+        margin-top: -20px;
+    }
+
+    #Cadastro #PerfilInvestGroup .perfil {
+        width: 80%;
+        margin: 40px 20%;
+    }
+
+    #Cadastro .btn {
+        width: 60%;
+    }
+}

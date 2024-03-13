@@ -7,19 +7,28 @@ iframe, canvas{
     height: 80vh !important;
 }
 
-@media (max-width: 888px){
 
-    .tradingview-widget-container{
-        height: 60vh !important;
+ @media (max-width: 1000px) {
+    .tradingview-widget-container {
+        height: 75vh !important;
     }
-
 }
 
-@media (max-width: 500px){
+@media (max-width: 900px) {
+    .tradingview-widget-container {
+        height: 70vh !important;
+    }
+}
 
-    .tradingview-widget-container{
+@media (max-width: 800px) {
+    .tradingview-widget-container {
         height: 60vh !important;
     }
+}
 
+@media (max-width: 600px) {
+    .tradingview-widget-container {
+        height: 50vh !important;
+    }
 }
 

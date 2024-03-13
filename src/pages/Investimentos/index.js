@@ -47,12 +47,12 @@ function Investimentos(){
 
                     <span>
                         <p>Data de vencimento</p>
-                        <p>01-01-2026</p>
+                        <p>21-01-2026</p>
                     </span>
 
                     <span>
                         <p>Vence em</p>
-                        <p>{diasRestantes('01/01/2026')} dias</p>
+                        <p>{diasRestantes('21/01/2026')} dias</p>
                     </span>
 
                     <span>

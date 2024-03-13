@@ -1,23 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom'
 import '../assets/css/config.css'
 
 function Config(){
 
+    
+
     let {userName, userSurname} = useParams()
 
     const [tempoAplicacao, setTempoAplicacao] = useState('10')
     const [taxaAdministrativa, setTaxaAdministrativa] = useState('0')
+    const [taxaAdministrativaAcoes, setTaxaAdministrativaAcoes] = useState('0.002')
     const [valorSelic, setValorSelic] = useState('0.1125')
     const [valorCdi, setValorCdi] = useState('0.1286')
-    const [taxaCustodia, setTaxaCustodia] = useState('0.002')
+    const [taxaCustodia, setTaxaCustodia] = useState('0.002')   
+    const [precoDividendosItub, setPrecoDividendosItub] = useState(1.125125/4)
+    const [precoDividendosVale, setprecoDividendosVale] = useState(1.565890809/4)
+    const [precoDividendosBbas, setprecoDividendosBbas] = useState(0.22474133412)
+
 
     let Variaveis = {
         tempoAplicacao,
         taxaAdministrativa,
+        taxaAdministrativaAcoes,
         valorSelic,
         valorCdi,
-        taxaCustodia
+        taxaCustodia,
+        precoDividendosItub,
+        precoDividendosVale,
+        precoDividendosBbas
     }
     
     const GuardarValores = () =>{
@@ -31,7 +42,7 @@ function Config(){
             <h1>CONFIGURAÇÕES</h1>
 
             <label>
-                <span>Tempo de aplicação:</span>
+                <span>Tempo de aplicação: {tempoAplicacao}</span>
                 <input
                 onChange={(event) => setTempoAplicacao(event.target.value)}
                 type='text'
@@ -41,7 +52,7 @@ function Config(){
             </label>
 
             <label>
-                <span>Valor do SELIC:</span>
+                <span>Valor do SELIC: {valorSelic}</span>
                 <input
                 onChange={(event) => setValorSelic(event.target.value)}
                 type='text'
@@ -51,7 +62,7 @@ function Config(){
             </label>
 
             <label>
-                <span>Taxa de administracão: </span>
+                <span>Taxa administrativa: {taxaAdministrativa}</span>
                 <input
                 onChange={(event) => setTaxaAdministrativa(event.target.value)}
                 type='text'
@@ -61,7 +72,17 @@ function Config(){
             </label>
 
             <label>
-                <span>Valor do CDI:</span>
+                <span>Taxa administrativa para ações: {taxaAdministrativaAcoes}</span>
+                <input
+                onChange={(event) => setTaxaAdministrativaAcoes(event.target.value)}
+                type='text'
+                id='taxaAdministrativa'
+                required
+                ></input>
+            </label>
+
+            <label>
+                <span>Valor do CDI: {valorCdi}</span>
                 <input
                 onChange={(event) => setValorCdi(event.target.value)}
                 type='text'
@@ -71,7 +92,7 @@ function Config(){
             </label>
 
             <label>
-                <span>Taxa de Custodia:</span>
+                <span>Taxa de Custodia: {taxaCustodia}</span>
                 <input
                 onChange={(event) => setTaxaCustodia(event.target.value)}
                 type='text'
@@ -80,9 +101,39 @@ function Config(){
                 ></input>
             </label>
 
+            <label>
+                <span>Valor trimestral de dividendos VALE3: R${precoDividendosVale.toFixed(6)}</span>
+                <input
+                onChange={(event) => setprecoDividendosVale(event.target.value)}
+                type='text'
+                id='precoDividendosVale'
+                required
+                ></input>
+            </label>
+
+            <label>
+                <span>Valor trimestral de dividendos ITUB4: R${precoDividendosItub.toFixed(6)}</span>
+                <input
+                onChange={(event) => setPrecoDividendosItub(event.target.value)}
+                type='text'
+                id='precoDividendosItub'
+                required
+                ></input>
+            </label>
+
+            <label>
+                <span>Valor trimestral de dividendos BBAS3: R${precoDividendosBbas.toFixed(6)}</span>
+                <input
+                onChange={(event) => setprecoDividendosBbas(event.target.value)}
+                type='text'
+                id='precoDividendosBbas'
+                required
+                ></input>
+            </label>
+
             <button onClick={()=>{
                     GuardarValores()
-                    window.location.href = `https://simuladormatematicafinanceira.onrender.com/Calcular/${userName}/${userSurname}`
+                    window.location.href = `http://localhost:3000/Calcular/${userName}/${userSurname}`
                 }
             }>Salvar</button>
 

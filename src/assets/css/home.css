@@ -40,24 +40,37 @@
     color: #ffffff;
 }
 
-@media (max-width: 888px){
-
-    #Home h1{
-        font-size: 4rem;
+@media (max-width: 690px) {
+    #Home h1 {
+        font-size: 3rem;
     }
-
-    
-    #Home .ufu, img{
+    #Home #content img {
         display: none;
     }
 
-    #Home #content{
-        display: flex;
-        flex-direction: row;
+    #Home #content {
+        text-align: center;
+        padding-top: 10%;
+    }
+}
+
+@media (max-width: 670px) {
+    #Home {
+        height: 70vh;
         justify-content: start;
-        padding-left: 5%;
-        margin-top: 15%;
-        padding-bottom: 5%;
     }
 
+    #Home .ufu {
+        top: 15px;
+        width: 90px;
+    }
+
+    #Home h1 {
+        font-size: 2.8rem;
+    }
+
+    #Home #content span {
+        font-size: 1.7rem;
+        width: 80%;
+    }
 }

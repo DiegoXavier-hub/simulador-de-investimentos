@@ -137,17 +137,18 @@ function Investir() {
         const partesInput3 = input3.value.split(';');
 
         setValorAcao1(vale3)
-        if(investimentos.acao1 >= 0 && investimentos.acao1 != ''){
+        
+        if(investimentos.acao1 >= 0 && investimentos.acao1 !== ''){
             setValorAcao1(investimentos.acao1*vale3)
         }
         
         setValorAcao2(itub4)
-        if(investimentos.acao2 >= 0 && investimentos.acao2 != ''){
+        if(investimentos.acao2 >= 0 && investimentos.acao2 !== ''){
             setValorAcao2(investimentos.acao2*itub4)
         }
 
         setValorAcao3(bbas3)
-        if(investimentos.acao3 >= 0 && investimentos.acao3 != ''){
+        if(investimentos.acao3 >= 0 && investimentos.acao3 !== ''){
             setValorAcao3(investimentos.acao3*bbas3)
         }
 
@@ -172,7 +173,7 @@ function Investir() {
                 }
                 
                 if(redirecionar === true){
-                    if(partesInput1[0].value !== '' && parseFloat(partesInput1[0]) >= 100)
+                    if(partesInput1[0] !== '' && partesInput1[0] !== '0' && parseFloat(partesInput1[0]) >= 100)
                     { 
                         redirecionar = true
                         input1.style.border = "2px solid green"
@@ -180,6 +181,11 @@ function Investir() {
                         redirecionar = false
                         input1.style.border = "1px solid red"
                     } 
+                }
+                if(!(partesInput1[0] !== '' && partesInput1[0] !== '0' && parseFloat(partesInput1[0]) >= 142.92))
+                { 
+                    redirecionar=false
+                    input1.style.border = "1px solid red"
                 }
             }
 
@@ -189,8 +195,9 @@ function Investir() {
                 }else if(verificarValorAntesDoPontoEVirgula(input2.value)===false){
                     input2.value = '0' + input2.value
                 }
+
                 if(redirecionar === true){
-                    if(partesInput2[0].value !== '' && parseFloat(partesInput2[0]) >= 38.03)
+                    if(partesInput2[0] !== '' && partesInput2[0] !== '0' && parseFloat(partesInput2[0]) >= 38.03)
                     { 
                         redirecionar = true
                         input2.style.border = "2px solid green"
@@ -198,6 +205,12 @@ function Investir() {
                         redirecionar = false
                         input2.style.border = "1px solid red"
                     }
+                }
+                
+                if(!(partesInput2[0] !== '' && partesInput2[0] !== '0' && parseFloat(partesInput2[0]) >= 142.92))
+                { 
+                    redirecionar=false
+                    input2.style.border = "1px solid red"
                 }
             }
 
@@ -208,7 +221,7 @@ function Investir() {
                     input3.value = '0' + input3.value
                 }
                 if(redirecionar === true){
-                    if(partesInput3[0].value !== '' && parseFloat(partesInput3[0]) >= 142.92)
+                    if(partesInput3[0] !== '' && partesInput3[0] !== '0' && parseFloat(partesInput3[0]) >= 142.92)
                     { 
                         redirecionar = true
                         input3.style.border = "2px solid green"
@@ -216,6 +229,12 @@ function Investir() {
                         redirecionar = false
                         input3.style.border = "1px solid red"
                     }
+                }
+                
+                if(!(partesInput3[0] !== '' && partesInput3[0] !== '0' && parseFloat(partesInput3[0]) >= 142.92))
+                { 
+                    redirecionar=false
+                    input3.style.border = "1px solid red"
                 }
             }
 
@@ -230,6 +249,11 @@ function Investir() {
                         input4.style.border = "1px solid red"
                     } 
                 }
+                if(!(input4.value !== '' && parseInt(input4.value) >= 1 && verificaInteiro(input4.value)))
+                { 
+                    redirecionar=false
+                    input4.style.border = "1px solid red"
+                }
             }
 
             if(check5.checked === true){
@@ -243,6 +267,11 @@ function Investir() {
                         input5.style.border = "1px solid red"
                     } 
                 }
+                if(!(input5.value !== '' && parseInt(input5.value) >= 1 && verificaInteiro(input5.value)))
+                { 
+                    redirecionar=false
+                    input5.style.border = "1px solid red"
+                }
             }
 
             if(check6.checked === true){
@@ -255,6 +284,11 @@ function Investir() {
                         redirecionar = false
                         input6.style.border = "1px solid red"
                     } 
+                }
+                if(!(input6.value !== '' && parseInt(input6.value) >= 1 && verificaInteiro(input6.value)))
+                { 
+                    redirecionar=false
+                    input6.style.border = "1px solid red"
                 }
             }
 
@@ -324,11 +358,7 @@ function Investir() {
                 window.location.href = `https://simuladormatematicafinanceira.onrender.com/Config/${userName}/${userSurname}`
             } else {
                 desativarBotao()
-                if(!verificaInteiro(input4.value) || !verificaInteiro(input5.value) || !verificaInteiro(input6.value)){
-                    alert("O número de cotas de ações deve ser um número inteiro")
-                }else{
-                    alert("Preencha os campos corretamente")
-                }
+                alert("Preencha os campos corretamente")
             }
     }
 
@@ -528,8 +558,8 @@ function Investir() {
             <h1>Recomendamos que invista</h1>
             <Grafico/>
             <div>
-            {value1}<h3>% em Renda Fixa</h3> <br/>
-            {value2}<h3>% em Renda Variavel</h3> <br/>
+            <h3>{value1}% em Renda Fixa</h3> <br/>
+            <h3>{value2}% em Renda Variavel</h3> <br/>
             </div>
         </section>
 

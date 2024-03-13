@@ -48,7 +48,10 @@
 } 
 
 @media (max-width: 888px){
-
+    #Simulador{
+        height: 50vh;
+    }
+    
     #Simulador img{
         display: none !important;
     }
@@ -63,6 +66,28 @@
 
     #Simulador .content{
         padding-left: 20%;
+    }
+
+    #Simulador{
+        height: 44vh;
+    }
+
+
+}
+
+@media (max-width: 450px){
+
+    #Simulador .content h1{
+        font-size: 2rem;
+        width: 90%;
+    }
+
+    #Simulador .content {
+        margin-left: -20%;
+    }
+
+    #Simulador{
+        height: 30vh;
     }
 
 }
