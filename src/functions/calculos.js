@@ -443,9 +443,7 @@ function Calcular(){
     }
 
 
-    console.log(ITUB4())
-    console.log(VALE3())
-    console.log(BBAS3())
+    
     
     useEffect(()=>{
 
@@ -481,9 +479,9 @@ function Calcular(){
         resultados.cdb3 = TesouroSelic()
         resultados.acao1 = VALE3()
         resultados.acao2 = ITUB4()
-        //resultados.acao3 = BBAS3()
+        resultados.acao3 = BBAS3()
         localStorage.setItem("Resultados", JSON.stringify(resultados))
-        //window.location.href = `https://simuladormatematicafinanceira.onrender.com/Resultados/${userName}/${userSurname}`
+        window.location.href = `https://simuladormatematicafinanceira.onrender.com/results/${userName}/${userSurname}`
     }, [])
 
     return(

@@ -133,7 +133,7 @@ function Config(){
 
             <button onClick={()=>{
                     GuardarValores()
-                    window.location.href = `http://localhost:3000/Calcular/${userName}/${userSurname}`
+                    window.location.href = `https://simuladormatematicafinanceira.onrender.com/Calcular/${userName}/${userSurname}`
                 }
             }>Salvar</button>
 
