@@ -133,7 +133,7 @@ function Config(){
 
             <button onClick={()=>{
                     GuardarValores()
-                    window.location.href = `https://simuladormatematicafinanceira.onrender.com/Calcular/${userName}/${userSurname}`
+                    window.location.href = `https://mat-fin.netlify.app/Calcular/${userName}/${userSurname}`
                 }
             }>Salvar</button>
 

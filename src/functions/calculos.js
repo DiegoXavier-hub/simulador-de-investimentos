@@ -483,7 +483,7 @@ function Calcular(){
         localStorage.setItem("Resultados", JSON.stringify(resultados))
         
         setTimeout(() => {
-            window.location.href = `https://simuladormatematicafinanceira.onrender.com/results`;
+            window.location.href = `https://mat-fin.netlify.app/results`;
         }, generateRandomNumber());
     }, [vale3, itub4, bbas3])
 
