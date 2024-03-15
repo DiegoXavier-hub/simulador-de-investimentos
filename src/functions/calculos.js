@@ -7,8 +7,6 @@ import './valores.js'
 function Calcular(){
     const investimentos = JSON.parse(localStorage.getItem("Investimentos"))
     const variaveis = JSON.parse(localStorage.getItem("Variaveis"))
-
-    let {userName, userSurname} = useParams()
     
     const resultados = {
         cdb1: 0,
@@ -19,9 +17,9 @@ function Calcular(){
         acao3: 0
     }
 
-    const [vale3, setVale3] = useState(0.00)
-    const [itub4, setItub4] = useState(0.00)
-    const [bbas3, setBbas3] = useState(0.00)
+    const [vale3, setVale3] = useState(0)
+    const [itub4, setItub4] = useState(0)
+    const [bbas3, setBbas3] = useState(0)
 
     const calcular_tempo_restante = (anos, dataPassada) => {
         const [dia, mes, ano] = dataPassada.split('-')
@@ -219,9 +217,9 @@ function Calcular(){
         const taxaAdministrativa = parseFloat(variaveis.taxaAdministrativa)
         let aportesMensais = 0
         let valorInvestido = 0
-        if(investimentos.cdb2 !== 0){
-            aportesMensais = parseFloat((investimentos.cdb2).split(';')[1])
-            valorInvestido = parseFloat((investimentos.cdb2).split(';')[0])
+        if(investimentos.cdb3 !== 0){
+            aportesMensais = parseFloat((investimentos.cdb3).split(';')[1])
+            valorInvestido = parseFloat((investimentos.cdb3).split(';')[0])
         }
         const taxaCustodia = parseFloat(variaveis.taxaCustodia)
         // const taxaCDB = taxaSelic/12 + (0.15/12)/100 //0.0095
@@ -442,7 +440,9 @@ function Calcular(){
         return(BBAS3)
     }
 
-
+    function generateRandomNumber() {
+        return Math.floor(Math.random() * (2350 - 1320 + 1)) + 1320;
+    }
     
     
     useEffect(()=>{
@@ -481,8 +481,11 @@ function Calcular(){
         resultados.acao2 = ITUB4()
         resultados.acao3 = BBAS3()
         localStorage.setItem("Resultados", JSON.stringify(resultados))
-        window.location.href = `https://simuladormatematicafinanceira.onrender.com/results/${userName}/${userSurname}`
-    }, [])
+        
+        setTimeout(() => {
+            window.location.href = `https://simuladormatematicafinanceira.onrender.com/results`;
+        }, generateRandomNumber());
+    }, [vale3, itub4, bbas3])
 
     return(
         <main id='Calcular'><div className="loader"></div></main>
