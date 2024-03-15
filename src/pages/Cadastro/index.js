@@ -62,7 +62,7 @@ function Cadastro(){
 
         VerificarFormulario(redirecionar, valueInput, button)
         if (VerificarFormulario(redirecionar, valueInput, button) === true){
-            window.location.href = `https://simuladormatematicafinanceira.onrender.com/Investir/${userName}/${userSurname}/${userInvestValue}/${investType}`
+            window.location.href = `https://mat-fin.netlify.app/Investir/${userName}/${userSurname}/${userInvestValue}/${investType}`
         }
     }
 

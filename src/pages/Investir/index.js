@@ -355,7 +355,7 @@ function Investir() {
         ControlarBotão()
 
             if (ControlarBotão() === true){
-                window.location.href = `https://simuladormatematicafinanceira.onrender.com/Config/${userName}/${userSurname}`
+                window.location.href = `https://mat-fin.netlify.app/Config/${userName}/${userSurname}`
             } else {
                 desativarBotao()
                 alert("Preencha os campos corretamente")

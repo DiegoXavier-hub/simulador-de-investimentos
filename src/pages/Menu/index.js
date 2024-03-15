@@ -20,14 +20,14 @@ function Menu(){
             <div className='Menu-back' id='Menu-back'></div>
 
             <ul className='Menu' id='Menu-items'>
-                <li className='logo'><a href='https://simuladormatematicafinanceira.onrender.com/' id='logo'><img src={Logo} alt="logo">
+                <li className='logo'><a href='https://mat-fin.netlify.app/' id='logo'><img src={Logo} alt="logo">
                     </img><span><h3>PROSPER</h3><h3>INVEST</h3></span></a>
                 </li>
                 
-                <li><a href='https://simuladormatematicafinanceira.onrender.com/#Home'>HOME</a></li>
-                <li><a href='https://simuladormatematicafinanceira.onrender.com/#Simulador'>SIMULADOR</a></li>
-                <li><a href='https://simuladormatematicafinanceira.onrender.com/#Investimentos'>INVESTIMENTOS</a></li>
-                <li><a href='https://simuladormatematicafinanceira.onrender.com/#Sobre'>SOBRE</a></li>
+                <li><a href='https://mat-fin.netlify.app/#Home'>HOME</a></li>
+                <li><a href='https://mat-fin.netlify.app/#Simulador'>SIMULADOR</a></li>
+                <li><a href='https://mat-fin.netlify.app/#Investimentos'>INVESTIMENTOS</a></li>
+                <li><a href='https://mat-fin.netlify.app/#Sobre'>SOBRE</a></li>
             </ul>
         </nav>
     )
