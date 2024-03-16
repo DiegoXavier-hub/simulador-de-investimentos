@@ -115,4 +115,8 @@
         display: none;
     }
 
+    button{
+        display: none !important;
+    }
+
 }

@@ -10,7 +10,6 @@ import { Chart as ChartJS,
 } from 'chart.js';
 import { Line, Pie } from 'react-chartjs-2';
 import Menu from '../Menu'
-import html2pdf from 'html2pdf.js'
 
 ChartJS.register(
     LineElement,

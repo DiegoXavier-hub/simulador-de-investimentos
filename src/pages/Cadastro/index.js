@@ -83,12 +83,6 @@ function Cadastro(){
                 nome: userName.trim(),
                 userInvestValue: userInvestValue.trim(),
                 investType: investType.trim(),
-                cdb1: 0,
-                cdb2: 0,
-                cdb3: 0,
-                acao1: 0,
-                acao2: 0,
-                acao3: 0,
             })
             .then(()=>{
                 setUserName('')

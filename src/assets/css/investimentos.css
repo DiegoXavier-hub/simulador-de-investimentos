@@ -106,7 +106,7 @@
     clip-path: circle(4% at 5% 90%);
     transition: all .3s ease-in-out;
     position: relative;
-    top: -1690%;
+    top: -1790%;
     right: -70%;
     display: flex;
     align-items: center;
@@ -145,13 +145,6 @@
 }
 
 
-/* @media (max-width:1000px){
-    #Investimentos .invest-group .card .ir .tooltip:hover {
-        right: -20%;
-    }
-} */
-
-
 @media (max-width: 1090px) {
     #Investimentos .invest-group {
         flex-wrap: wrap;
@@ -161,9 +154,15 @@
         margin: 20px;
     }
 
+    #Investimentos .invest-group .card .ir .tooltip {
+        top: -1800%;
+    }
+
     #Investimentos .invest-group .card .ir .tooltip:hover {
         right: -20%;
     }
+
+    
 }
 
 @media (max-width: 745px) {
@@ -179,6 +178,10 @@
 @media (max-width: 575px) {
     #Investimentos h1{
         font-size: 3.2rem;
+    }
+
+    #Investimentos .card h1{
+        font-size: 1.6rem;
     }
 
     #Investimentos .invest-group .card {
@@ -199,7 +202,7 @@
     }
 
     #Investimentos .invest-group .card .ir .tooltip h1 {
-        font-size: 1.5rem;
+        font-size: 1.5rem ;
     }
 
     .icon {

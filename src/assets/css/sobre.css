@@ -108,6 +108,17 @@
     color: #ffffff;
 }
 
+@media (max-width: 1600px){
+
+    #Sobre{
+        height: 125vh;
+    }
+    #Sobre .references .references-list li{
+        font-size: 1.2rem;
+        
+    }
+}
+
 @media (max-width: 1500px){
 
     #Sobre{
