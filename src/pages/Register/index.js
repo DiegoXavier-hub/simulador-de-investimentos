@@ -33,7 +33,7 @@ export default function Register(){
         if(redirect){
             await createUserWithEmailAndPassword(auth, email, password)
             .then(()=>{
-                navigate('', { replace: true })
+                navigate('/', { replace: true })
             })
             .catch((error)=>{
                 switch(error.code){
