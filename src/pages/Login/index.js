@@ -51,11 +51,11 @@ export default function Home(){
     return(
         <main id="home">
 
-        <h1>To-Do List</h1>
+        <h1>PROSPERINVEST</h1>
 
             <form className='form' onSubmit={handleLogin} name='loginForm' id='loginForm'>
 
-                <span>Gerencie sua agenda de forma fácil</span>
+                <span>Simule seus investimentos agora</span>
 
                 <span>
                     <label htmlFor='email'>email:</label>
