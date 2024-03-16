@@ -47,6 +47,10 @@
     transition: all 0.3s;
 } 
 
+#download-pdf{
+    margin-bottom: 40px;
+}
+
 @media (max-width: 888px){
     #Simulador{
         height: 50vh;

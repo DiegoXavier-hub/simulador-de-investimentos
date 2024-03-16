@@ -1,6 +1,6 @@
 #Sobre{
     width: 100%;
-    height: max-content;
+    height: 110vh;
     position: relative;
     color: #d9d9d9;
     overflow-y: hidden;
@@ -79,42 +79,178 @@
     text-align: right;
 }
 
-@media (max-width: 888px){
+#Sobre .references {
+    margin-bottom: 200px;
+}
 
+#Sobre .references h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+#Sobre .references .references-list{
+    width: 90%;
+    height: 25vh;
+}
+
+#Sobre .references .references-list li{
+    font-size: 1.5rem;
+    list-style: circle;
+    padding-bottom: 7px;
+}
+
+#Sobre .references .references-list li a{
+    color: #d9d9d9;
+}
+
+#Sobre .references .references-list li a:hover{
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+@media (max-width: 1500px){
+
+    #Sobre{
+        height: 113vh;
+    }
+    #Sobre .references .references-list li{
+        font-size: 1.2rem;
+        
+    }
+}
+
+
+
+
+ @media (max-width: 1140px) {
+    #Sobre {
+        height: 120vh;
+        background-color: #161630;
+    }
+
+    .section .involved .sobre-img {
+        width: 500px;
+        margin-right: -7%;
+        
+    }
+
+    .persons li {
+        width: 200px;
+    }
+}
+
+@media (max-width: 890px) {
+    .header {
+        margin-bottom: -10%;
+    }
     #Sobre .section .involved .sobre-img{
+        margin-right: -2%;
+        width: 400px;
+    }
+    .references {
+        margin-left: 3%;
+    }
+}
+
+@media (max-width: 660px) {
+    #Sobre {
+        z-index: 20;
+        background-color: #161630;
+        height: 134vh;
+    }
+
+    
+    .section .involved .sobre-img {
         display: none;
     }
 
-    #Sobre .header{
-        height: 30vh;
-    }
-
-}
-
-@media (max-width: 600px){
-
-    #Sobre{
-        width: 100%;
-        position: relative;
-        color: #d9d9d9;
-        height: 100vh;
-    }
-
-    #Sobre .section, .involved{
-        display: flex;
+    .section .involved {
+        justify-content: space-between;
         align-items: center;
-        flex-direction: column;
+        height: 500px;
+    }
+
+    #Sobre .section .involved .persons li {
+        font-size: 2rem;
+    }
+
+    .section .involved .persons:last-child {
+        text-align: end;
+    }
+
+    #Sobre .header {
+        margin-bottom: -30%;
+    }
+
+    .references {
+        height: 200px;
+        margin-left: 2%;
+        z-index: 20;
+        background-color: #161630;
+    }
+}
+
+@media (max-width: 540px) {
+    #Sobre {
+        z-index: 20;
+        background-color: #161630;
+        height: 160vh;
+    }
+
+    #Sobre .header{
+        height: 36vh;
+    }
+
+    #Sobre .section .involved {
+        flex-direction: column !important;
+        align-items: start;
+        text-align: start;
         justify-content: space-evenly;
-        flex-wrap: wrap;
     }
 
-    .persons{
-        width: 100%;
+    .section .involved .persons:last-child li{
+        text-align: start;
     }
 
-    #Sobre .section .involved .persons:last-child{
-        text-align: left;
+    #Sobre .section .involved .persons li {
+        font-size: 1.5rem;
     }
+
+    .references {
+        margin-top: 4%;
+        height: 200px;
+        z-index: 20;
+        padding: 2%;
+    }
+
+    #Sobre .references .references-list li{
+        font-size: 1.1rem;
+        
+    }
+}
+
+@media (max-height: 641px) {
+
+    #Sobre {
+        height: 190vh;
+    }
+
+    #Sobre .header{
+        height: 41vh;
+    }
+
 
 }
 
+@media (max-height: 570px) {
+
+    #Sobre {
+        height: 210vh;
+    }
+
+    #Sobre .header{
+        height: 43vh;
+    }
+
+
+}

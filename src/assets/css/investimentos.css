@@ -145,8 +145,98 @@
 }
 
 
-@media (max-width:1000px){
+/* @media (max-width:1000px){
     #Investimentos .invest-group .card .ir .tooltip:hover {
         right: -20%;
+    }
+} */
+
+
+@media (max-width: 1090px) {
+    #Investimentos .invest-group {
+        flex-wrap: wrap;
+    }
+
+    #Investimentos .invest-group .card {
+        margin: 20px;
+    }
+
+    #Investimentos .invest-group .card .ir .tooltip:hover {
+        right: -20%;
+    }
+}
+
+@media (max-width: 745px) {
+    #Investimentos .invest-group .card {
+        width: 400px;
+    }
+
+    #Investimentos .invest-group{
+        padding: 15px 0 50px 0;
+    }
+}
+
+@media (max-width: 575px) {
+    #Investimentos h1{
+        font-size: 3.2rem;
+    }
+
+    #Investimentos .invest-group .card {
+        width: 350px;
+        height: 400px;
+    }
+
+    #Investimentos .invest-group .card p {
+        font-size: 1.3rem;
+    }
+
+    #Investimentos .invest-group .card .ir .tooltip {
+        top: -1500%;
+    }
+
+    #Investimentos .invest-group .card .ir .tooltip p {
+        font-size: 1rem;
+    }
+
+    #Investimentos .invest-group .card .ir .tooltip h1 {
+        font-size: 1.5rem;
+    }
+
+    .icon {
+        bottom: 4.9%;
+        left: 3%;
+    }
+}
+
+@media (max-width: 430px) {
+    #Investimentos .invest-group .card {
+        width: 300px;
+        
+    }
+
+    #Investimentos .invest-group .card p {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    #Investimentos .invest-group .card .ir {
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    #Investimentos .invest-group .card .ir .tooltip {
+        top: -1300%;
+        right: -65%;
+        width: 200px;
+        padding: 7%;
+        padding-left: 10%;
+    }
+
+    #Investimentos .invest-group .card .ir .tooltip p {
+        font-size: 1rem;
+    }
+
+    #Investimentos .invest-group .card .ir .tooltip h1 {
+        font-size: 1.3rem;
     }
 }

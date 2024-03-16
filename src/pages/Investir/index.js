@@ -9,7 +9,7 @@ import Menu from '../Menu'
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function Investir() {
-    
+
     const valores = {
         rendaFixaValue: 0,
         rendaVariavelValue: 0

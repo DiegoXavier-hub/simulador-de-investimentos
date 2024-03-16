@@ -300,8 +300,8 @@ input{
     #Investir #content section .valores[type="number"],
     #Investir #content section .valores[type="text"]::placeholder,
     #Investir #content section .valores[type="number"]::placeholder {
-        width: 150px;
-        height: 30px;
+        width: 120%;
+        height: 35px;
         font-size: 1rem;
     }
 

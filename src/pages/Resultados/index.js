@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRe } from 'react';
 import '../../assets/css/resultados.css'
 import Rodape from '../Rodape'
 import { Chart as ChartJS,
@@ -10,6 +10,7 @@ import { Chart as ChartJS,
 } from 'chart.js';
 import { Line, Pie } from 'react-chartjs-2';
 import Menu from '../Menu'
+import html2pdf from 'html2pdf.js'
 
 ChartJS.register(
     LineElement,
@@ -102,8 +103,7 @@ function Results(){
                 "valorLiquido?": 0,
                 "valorBruto": 0
             }
-        }        
-    ) 
+        }        ) 
 
     const data = {
         labels: [resultados.cdb1?.id, resultados.cdb2?.id, resultados.cdb3?.id, resultados.acao1?.id, resultados.acao2.id, resultados.acao3?.id],
@@ -144,22 +144,22 @@ function Results(){
             {
             label: resultados.cdb1?.id,
             data:[resultados.cdb1?.valorInvestidoComOTempo?.toFixed(2), resultados.cdb1?.valorLiquido?.toFixed(2)],
-            backgroundColor: '#66a6ff',
-            borderColor:'#66a6ff',
+            backgroundColor: '#ff9a9e',
+            borderColor:'#ff9a9e',
             borderWidth: 3,
         },
         {
             label: resultados.cdb2?.id,
             data:[resultados.cdb2?.valorInvestidoComOTempo?.toFixed(2), resultados.cdb2?.valorLiquido?.toFixed(2)],
-            backgroundColor: '#764ba2',
-            borderColor:'#764ba2',
+            backgroundColor: '#66a6ff',
+            borderColor:'#66a6ff',
             borderWidth: 3,
         },
         {
             label: resultados.cdb3?.id,
             data:[resultados.cdb3?.valorInvestidoComOTempo?.toFixed(2), resultados.cdb3?.valorLiquido?.toFixed(2)],
-            backgroundColor: '#ad5389',
-            borderColor:'#ad5389',
+            backgroundColor: '#764ba2',
+            borderColor:'#764ba2',
             borderWidth: 3,
         }
     ],
@@ -171,8 +171,8 @@ function Results(){
             {
             label: resultados.acao1?.id,
             data:[resultados.acao1?.valorInvestidoComOTempo?.toFixed(2), resultados.acao1?.valorLiquido?.toFixed(2)],
-            backgroundColor: '#ff9a9e',
-            borderColor: '#ff9a9e',
+            backgroundColor: '#ad5389',
+            borderColor: '#ad5389',
             borderWidth: 3,
         },
         {
@@ -224,14 +224,22 @@ function Results(){
         }
     };
     
-    
     useEffect(()=>{
         const resultados = localStorage.getItem('Resultados')
         if(resultados){
             setResultados(JSON.parse(resultados))
         }
 
+        function addScript(url) {
+            var script = document.createElement('script');
+            script.type = 'application/javascript';
+            script.src = url;
+            document.head.appendChild(script);
+        }
+        addScript('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js');
     },[])
+
+
     
     return(
     
@@ -294,7 +302,7 @@ function Results(){
                         </p>
                     </span>
                     <span>
-                        <p>Valor Liquido total::</p>
+                        <p>Valor Liquido total:</p>
                         <p className='Infos result'>R$ {
                             (parseFloat(
                                 isNaN(parseFloat(resultados.cdb1?.valorLiquido)) ? 0 : resultados.cdb1?.valorLiquido.toFixed(4)
@@ -364,7 +372,7 @@ function Results(){
                         </p>
                     </span>
                     <span>
-                        <p>Valor Liquido total::</p>
+                        <p>Valor Liquido total:</p>
                         <p className='Infos result'>R$ {
                             (parseFloat(
                                 isNaN(parseFloat(resultados.acao1?.valorLiquido)) ? 0 : resultados.acao1?.valorLiquido.toFixed(4)
@@ -381,6 +389,7 @@ function Results(){
                 </div>
 
             </div>
+            <button id="download-pdf" className='btn' onClick={()=>{window.print()}}>Baixar Resultados</button>
 
             <Rodape/>
         </main>

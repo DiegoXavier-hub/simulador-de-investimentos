@@ -82,6 +82,7 @@
     font-weight: bolder;
 }
 
+
 @media (max-width: 670px){
     .infos-container{
         height: auto;
@@ -95,4 +96,23 @@
     #Resultados h1{
         margin-left: 7%;
     }
+}
+
+@media print {
+    * {
+        background: transparent;
+        color: #000;
+        text-shadow: none; 
+        filter: none;
+        -ms-filter: none;
+    }
+
+    #Menu{
+        display: none;
+    }
+
+    #Rodape{
+        display: none;
+    }
+
 }

@@ -2,6 +2,11 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react';
 import '../assets/css/calcular.css'
 import './valores.js'
+import { db } from '../firebaseConnection.js'
+import {
+    addDoc,
+    collection,
+} from 'firebase/firestore'
 
 function Calcular(){
     const investimentos = JSON.parse(localStorage.getItem("Investimentos"))
@@ -16,6 +21,7 @@ function Calcular(){
         acao3: 0
     }
 
+    const [user, setUser] = useState({})
     const [vale3, setVale3] = useState(0)
     const [itub4, setItub4] = useState(0)
     const [bbas3, setBbas3] = useState(0)
@@ -35,6 +41,23 @@ function Calcular(){
             return parseFloat(diferencaAnos.toFixed(2))
         }
 
+    }
+
+    async function handleRegister(){
+        await addDoc(collection(db, 'userInfoResult'), {
+            userUid: user?.uid,
+            cdb1: resultados.cdb1,
+            cdb2: resultados.cdb2,
+            cdb3: resultados.cdb3,
+            acao1: resultados.acao1,
+            acao2: resultados.acao2,
+            acao3: resultados.acao3,
+        })
+        .then(()=>{
+        })
+        .catch((error)=>{
+            alert('Erro ao registrar!', error)
+        })
     }
     
     function calcularImpostoRenda(rendimentoLiquido, tempoAplicacao) {
@@ -299,7 +322,7 @@ function Calcular(){
         const valorPagamentoDivididendos = parseFloat(variaveis.precoDividendosItub)
 
         let valorInvestidoComOTempo = numAcoes * itub4
-        let itubValue = itub4 * 1.4119
+        let itubValue = itub4 * 1.4819
         const dividendos = calcularDividendoAcao(valorPagamentoDivididendos, numAcoes)*4*tempoAplicacao
         let redimentoPorAcaoBruto = itubValue - itub4 + dividendos/numAcoes
         const valorBruto = numAcoes * itubValue + dividendos
@@ -347,7 +370,7 @@ function Calcular(){
         const valorPagamentoDivididendos = parseFloat(variaveis.precoDividendosVale)
 
         let valorInvestidoComOTempo = numAcoes * vale3
-        let valeValue = vale3 * 1.8902
+        let valeValue = vale3 * 1.5802
         const dividendos = calcularDividendoAcao(valorPagamentoDivididendos, numAcoes)*4*tempoAplicacao
         let redimentoPorAcaoBruto = valeValue - vale3 + dividendos/numAcoes
         const valorBruto = numAcoes * valeValue + dividendos
@@ -446,6 +469,11 @@ function Calcular(){
     
     useEffect(()=>{
 
+        async function loadTarefas(){
+            const userDatail = localStorage.getItem('@detailUser')
+            setUser(JSON.parse(userDatail))
+        }
+
         async function fetchData(){
             const symbols = ['VALE3', 'ITUB4', 'BBAS3']
             for (let symbol of symbols){
@@ -472,6 +500,7 @@ function Calcular(){
         }
 
         fetchData()
+        loadTarefas()
 
         resultados.cdb1 = CdbNubank()
         resultados.cdb2 = TesouroPrefixado()
@@ -482,6 +511,7 @@ function Calcular(){
         localStorage.setItem("Resultados", JSON.stringify(resultados))
         
         setTimeout(() => {
+            handleRegister()
             window.location.href = `https://mat-fin.netlify.app/results`;
         }, generateRandomNumber());
     }, [vale3, itub4, bbas3])
