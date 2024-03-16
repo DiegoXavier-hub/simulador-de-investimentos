@@ -92,7 +92,7 @@ function Cadastro(){
             .catch((error)=>{
                 alert('Erro ao cadastrar!', error)
             })
-            window.location.href = `http://localhost:3000/investir/${userInvestValue.trim()}/${investType.trim()}`
+            window.location.href = `https://mat-fin.netlify.app/investir/${userInvestValue.trim()}/${investType.trim()}`
         }
     }
 
