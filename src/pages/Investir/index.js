@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import axios from 'axios'
+import Menu from '../Menu'
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -14,7 +15,7 @@ function Investir() {
         rendaVariavelValue: 0
     }
 
-    let {userInvestValue, userInvestType, userName, userSurname} = useParams()
+    let {userInvestValue, userInvestType} = useParams()
     let value1, value2 = 0
     userInvestValue = parseFloat(userInvestValue)
     
@@ -355,7 +356,7 @@ function Investir() {
         ControlarBotão()
 
             if (ControlarBotão() === true){
-                window.location.href = `https://mat-fin.netlify.app/Config/${userName}/${userSurname}`
+                window.location.href = `https://mat-fin.netlify.app/config/`
             } else {
                 desativarBotao()
                 alert("Preencha os campos corretamente")
@@ -365,6 +366,7 @@ function Investir() {
     return (
 
         <main id='Investir'>
+        <Menu/>
         <section id='content'>
 
         <h1>Vamos Investir</h1>

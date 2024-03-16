@@ -1,9 +1,16 @@
 import React from 'react'
 import '../../assets/css/menu.css'
 import Logo from "../../assets/images/logo.png"
+import { signOut } from 'firebase/auth'
+import { auth } from '../../firebaseConnection'
 <script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script>
 
 function Menu(){
+
+    //desloga o usuário
+    async function handleLogout() {
+        await signOut(auth);
+    }
     return(
         <nav id='Menu'>
             <div className='mobile-Menu' id='mobile-Menu' onClick={
@@ -28,6 +35,7 @@ function Menu(){
                 <li><a href='https://mat-fin.netlify.app/#Simulador'>SIMULADOR</a></li>
                 <li><a href='https://mat-fin.netlify.app/#Investimentos'>INVESTIMENTOS</a></li>
                 <li><a href='https://mat-fin.netlify.app/#Sobre'>SOBRE</a></li>
+                <li><a href='/' onClick={handleLogout}>SAIR</a></li>
             </ul>
         </nav>
     )

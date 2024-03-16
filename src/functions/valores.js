@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom'
 import '../assets/css/config.css'
+import Menu from '../pages/Menu'
 
 function Config(){
-
-    
-
-    let {userName, userSurname} = useParams()
 
     const [tempoAplicacao, setTempoAplicacao] = useState('10')
     const [taxaAdministrativa, setTaxaAdministrativa] = useState('0')
@@ -39,6 +35,7 @@ function Config(){
     
     return(
         <main id="Config">
+        <Menu/>
             <h1>CONFIGURAÇÕES</h1>
 
             <label>
@@ -133,7 +130,7 @@ function Config(){
 
             <button onClick={()=>{
                     GuardarValores()
-                    window.location.href = `https://mat-fin.netlify.app/Calcular/${userName}/${userSurname}`
+                    window.location.href = `https://mat-fin.netlify.app/calcular/`
                 }
             }>Salvar</button>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import RoutesApp from './routes'
+import RoutesApp from './Rotas/routes'
 
 const Page = () => <RoutesApp/>
 

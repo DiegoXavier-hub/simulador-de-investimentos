@@ -9,6 +9,7 @@ import { Chart as ChartJS,
     PointElement
 } from 'chart.js';
 import { Line, Pie } from 'react-chartjs-2';
+import Menu from '../Menu'
 
 ChartJS.register(
     LineElement,
@@ -235,6 +236,7 @@ function Results(){
     return(
     
         <main id="Resultados">
+        <Menu/>
             <h1>Agora seus resultados</h1>
             <div className='grafico-patrimonio' id='grafico-patrimonio'>
                 <h2>Seu Patrimônio</h2>
@@ -249,36 +251,60 @@ function Results(){
                     <span>
                         <p>Valor que você investiu:</p>
                         <p className='Infos'>R$ {
-                            (parseFloat(resultados.cdb1?.valorInvestidoComOTempo) +
-                            parseFloat(resultados.cdb2?.valorInvestidoComOTempo)+
-                            parseFloat(resultados.cdb3?.valorInvestidoComOTempo)).toFixed(2)
+                            (parseFloat(
+                                isNaN(parseFloat(resultados.cdb1?.valorInvestidoComOTempo)) ? 0 : resultados.cdb1?.valorInvestidoComOTempo.toFixed(4)
+                            ) +
+                            parseFloat(
+                                isNaN(parseFloat(resultados.cdb2?.valorInvestidoComOTempo)) ? 0 : resultados.cdb2?.valorInvestidoComOTempo.toFixed(4)
+                            )+
+                            parseFloat(
+                                isNaN(parseFloat(resultados.cdb3?.valorInvestidoComOTempo)) ? 0 : resultados.cdb3?.valorInvestidoComOTempo.toFixed(4)
+                            )).toFixed(2)
                             }
                         </p>
                     </span>
                     <span>
                         <p>Valor que você pagou de impostos:</p>
                         <p className='Infos'>R$ {
-                            (parseFloat(resultados.cdb1?.impostos) +
-                            parseFloat(resultados.cdb2?.impostos)+
-                            parseFloat(resultados.cdb3?.impostos)).toFixed(2)
+                            (parseFloat(
+                                isNaN(parseFloat(resultados.cdb1?.impostos)) ? 0 : resultados.cdb1?.impostos.toFixed(4)
+                            ) +
+                            parseFloat(
+                                isNaN(parseFloat(resultados.cdb2?.impostos)) ? 0 : resultados.cdb2?.impostos.toFixed(4)
+                            )+
+                            parseFloat(
+                                isNaN(parseFloat(resultados.cdb3?.impostos)) ? 0 : resultados.cdb3?.impostos.toFixed(4)
+                            )).toFixed(2)
                             }
                         </p>
                     </span>
                     <span>
                         <p>Valor bruto total:</p>
                         <p className='Infos'>R$ {
-                            (parseFloat(resultados.cdb1?.valorBruto) +
-                            parseFloat(resultados.cdb2?.valorBruto)+
-                            parseFloat(resultados.cdb3?.valorBruto)).toFixed(2)
+                            (parseFloat(
+                                isNaN(parseFloat(resultados.cdb1?.valorBruto)) ? 0 : resultados.cdb1?.valorBruto.toFixed(4)
+                            ) +
+                            parseFloat(
+                                isNaN(parseFloat(resultados.cdb2?.valorBruto)) ? 0 : resultados.cdb2?.valorBruto.toFixed(4)
+                            )+
+                            parseFloat(
+                                isNaN(parseFloat(resultados.cdb3?.valorBruto)) ? 0 : resultados.cdb3?.valorBruto.toFixed(4)
+                            )).toFixed(2)
                             }
                         </p>
                     </span>
                     <span>
                         <p>Valor Liquido total::</p>
                         <p className='Infos result'>R$ {
-                            (parseFloat(resultados.cdb1?.valorLiquido) +
-                            parseFloat(resultados.cdb2?.valorLiquido)+
-                            parseFloat(resultados.cdb3?.valorLiquido)).toFixed(2)
+                            (parseFloat(
+                                isNaN(parseFloat(resultados.cdb1?.valorLiquido)) ? 0 : resultados.cdb1?.valorLiquido.toFixed(4)
+                            ) +
+                            parseFloat(
+                                isNaN(parseFloat(resultados.cdb2?.valorLiquido)) ? 0 : resultados.cdb2?.valorLiquido.toFixed(4)
+                            )+
+                            parseFloat(
+                                isNaN(parseFloat(resultados.cdb3?.valorLiquido)) ? 0 : resultados.cdb3?.valorLiquido.toFixed(4)
+                            )).toFixed(2)
                             }
                         </p>
                     </span>
@@ -294,36 +320,61 @@ function Results(){
                     <span>
                         <p>Valor que você investiu:</p>
                         <p className='Infos'>R$ {
-                            (parseFloat(resultados.acao1?.valorInvestidoComOTempo) +
-                            parseFloat(resultados.acao2?.valorInvestidoComOTempo)+
-                            parseFloat(resultados.acao3?.valorInvestidoComOTempo)).toFixed(2)
+                            
+                            (parseFloat(
+                                isNaN(parseFloat(resultados.acao1?.valorInvestidoComOTempo)) ? 0 : resultados.acao1?.valorInvestidoComOTempo.toFixed(4)
+                            ) +
+                            parseFloat(
+                                isNaN(parseFloat(resultados.acao2?.valorInvestidoComOTempo)) ? 0 : resultados.acao2?.valorInvestidoComOTempo.toFixed(4)
+                            )+
+                            parseFloat(
+                                isNaN(parseFloat(resultados.acao3?.valorInvestidoComOTempo)) ? 0 : resultados.acao3?.valorInvestidoComOTempo.toFixed(4)
+                            )).toFixed(2)
                             }
                         </p>
                     </span>
                     <span>
                         <p>Valor que você pagou de impostos:</p>
                         <p className='Infos'>R$ {
-                            (parseFloat(resultados.acao1?.impostos) +
-                            parseFloat(resultados.acao2?.impostos)+
-                            parseFloat(resultados.acao3?.impostos)).toFixed(2)
+                            (parseFloat(
+                                isNaN(parseFloat(resultados.acao1?.impostos)) ? 0 : resultados.acao1?.impostos.toFixed(4)
+                            ) +
+                            parseFloat(
+                                isNaN(parseFloat(resultados.acao2?.impostos)) ? 0 : resultados.acao2?.impostos.toFixed(4)
+                            )+
+                            parseFloat(
+                                isNaN(parseFloat(resultados.acao3?.impostos)) ? 0 : resultados.acao3?.impostos.toFixed(4)
+                            )).toFixed(2)
                             }
                         </p>
                     </span>
                     <span>
                         <p>Rendimento liquido total:</p>
                         <p className='Infos'>R$ {
-                            (parseFloat(resultados.acao1?.rendimentoLiquido) +
-                            parseFloat(resultados.acao2?.rendimentoLiquido)+
-                            parseFloat(resultados.acao3?.rendimentoLiquido)).toFixed(2)
+                            (parseFloat(
+                                isNaN(parseFloat(resultados.acao1?.rendimentoLiquido)) ? 0 : resultados.acao1?.rendimentoLiquido.toFixed(4)
+                            ) +
+                            parseFloat(
+                                isNaN(parseFloat(resultados.acao2?.rendimentoLiquido)) ? 0 : resultados.acao2?.rendimentoLiquido.toFixed(4)
+                            )+
+                            parseFloat(
+                                isNaN(parseFloat(resultados.acao3?.rendimentoLiquido)) ? 0 : resultados.acao3?.rendimentoLiquido.toFixed(4)
+                            )).toFixed(2)
                             }
                         </p>
                     </span>
                     <span>
                         <p>Valor Liquido total::</p>
                         <p className='Infos result'>R$ {
-                            (parseFloat(resultados.acao1?.valorLiquido) +
-                            parseFloat(resultados.acao2?.valorLiquido)+
-                            parseFloat(resultados.acao3?.valorLiquido)).toFixed(2)
+                            (parseFloat(
+                                isNaN(parseFloat(resultados.acao1?.valorLiquido)) ? 0 : resultados.acao1?.valorLiquido.toFixed(4)
+                            ) +
+                            parseFloat(
+                                isNaN(parseFloat(resultados.acao2?.valorLiquido)) ? 0 : resultados.acao2?.valorLiquido.toFixed(4)
+                            )+
+                            parseFloat(
+                                isNaN(parseFloat(resultados.acao3?.valorLiquido)) ? 0 : resultados.acao3?.valorLiquido.toFixed(4)
+                            )).toFixed(2)
                             }
                         </p>
                     </span>

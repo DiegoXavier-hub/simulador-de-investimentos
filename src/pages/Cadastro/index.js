@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react'
 import Rodape from '../Rodape'
+import { db } from '../../firebaseConnection'
+import {
+    addDoc,
+    collection
+} from 'firebase/firestore'
 import "../../assets/css/cadastro.css"
 import primeirasPerguntas from '../../assets/images/primeiras-perguntas.png'
+import Menu from '../Menu'
 
 
 function Cadastro(){
@@ -10,6 +16,7 @@ function Cadastro(){
     const [userSurname, setUserSurname] = useState('')
     const [userInvestValue, setUserInvestValue] = useState('')
     const [investType, setInvestType] = useState('1');
+    const [user, setUser] = useState({})
 
     const handleOpcaoChange = (event) => {
         setInvestType(event.target.value);
@@ -51,18 +58,41 @@ function Cadastro(){
         let redirecionar = true
 
         VerificarFormulario(redirecionar, valueInput, button)
+
+        async function loadTarefas(){
+            const userDatail = localStorage.getItem('@detailUser')
+            setUser(JSON.parse(userDatail))
+        }
+
+        loadTarefas()
     })
 
     let valueInput = document.getElementById("userInvestValue")
     let button = document.getElementById("cadastroButtom")
 
-    const Redirecionar = () => {
+    async function Redirecionar(e) {
+        e.preventDefault()
 
         let redirecionar = true
 
         VerificarFormulario(redirecionar, valueInput, button)
         if (VerificarFormulario(redirecionar, valueInput, button) === true){
-            window.location.href = `https://mat-fin.netlify.app/Investir/${userName}/${userSurname}/${userInvestValue}/${investType}`
+            await addDoc(collection(db, 'userInfo'), {
+                //campos a serem cadastrados
+                userUid: user?.uid,
+                nome: userName.trim(),
+                userInvestValue: userInvestValue.trim(),
+                investType: investType.trim()
+            })
+            .then(()=>{
+                setUserName('')
+                setUserSurname('')
+                setUserInvestValue('')
+            })
+            .catch((error)=>{
+                alert('Erro ao cadastrar!', error)
+            })
+            window.location.href = `http://localhost:3000/investir/${userInvestValue.trim()}/${investType.trim()}`
         }
     }
 
@@ -74,6 +104,7 @@ function Cadastro(){
 
     return(
         <main id='Cadastro'>
+        <Menu/>
             <div className='content'>
                 <div className='inputs'>
                     <h1>VAMOS COMEÇAR...</h1>
@@ -146,9 +177,7 @@ function Cadastro(){
                         </section>
                     </div>
 
-                    <button className='btn' id='cadastroButtom' onClick={()=>{
-                        Redirecionar()
-                    }}>
+                    <button className='btn' id='cadastroButtom' onClick={Redirecionar}>
                         Avançar
                     </button>
 

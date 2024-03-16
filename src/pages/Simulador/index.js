@@ -6,7 +6,7 @@ function Simulador(){
         <main id='Simulador'>
             <div className='content'>
                 <h1>Faça sua simulação de investimentos agora</h1>
-                <a href='https://mat-fin.netlify.app/Cadastrar' className='btn'>Simular agora</a>
+                <a href='https://mat-fin.netlify.app/cadastrar' className='btn'>Simular agora</a>
             </div>
             <img src={Dinheiro} alt="dinheiro"/>
         </main>
