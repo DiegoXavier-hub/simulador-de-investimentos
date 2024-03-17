@@ -110,7 +110,7 @@ function Results(){
             { 
                 label: `Valor: R$`,
                 lineTension: 0.1,
-                data: [resultados.cdb1?.valorLiquido?.toFixed(2), resultados.cdb2?.valorLiquido?.toFixed(2), resultados.cdb3?.valorLiquido?.toFixed(2), resultados.acao1?.valorLiquido?.toFixed(2), resultados.acao2?.valorLiquido?.toFixed(2), resultados.acao3?.valorLiquido?.toFixed(2)],
+                data: [resultados.cdb1?.valorLiquido?.toFixed(2), resultados.cdb2?.valorLiquido?.toFixed(2), resultados.cdb3?.valorLiquido?.toFixed(2), resultados.acao2?.valorLiquido?.toFixed(2), resultados.acao1?.valorLiquido?.toFixed(2), resultados.acao3?.valorLiquido?.toFixed(2)],
                 backgroundColor: [
                     '#ff9a9e',
                     '#66a6ff',
@@ -168,14 +168,14 @@ function Results(){
         labels: ['1° ano', 'Ano do resgate'],
         datasets:[
             {
-            label: resultados.acao1?.id,
+            label: resultados.acao2?.id,
             data:[resultados.acao1?.valorInvestidoComOTempo?.toFixed(2), resultados.acao1?.valorLiquido?.toFixed(2)],
             backgroundColor: '#ad5389',
             borderColor: '#ad5389',
             borderWidth: 3,
         },
         {
-            label: resultados.acao2?.id,
+            label: resultados.acao1?.id,
             data:[resultados.acao2?.valorInvestidoComOTempo?.toFixed(2), resultados.acao2?.valorLiquido?.toFixed(2)],
             backgroundColor: '#3c1053',
             borderColor:'#3c1053',
