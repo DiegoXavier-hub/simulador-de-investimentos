@@ -106,7 +106,7 @@
     clip-path: circle(4% at 5% 90%);
     transition: all .3s ease-in-out;
     position: relative;
-    top: -1790%;
+    top: -1700%;
     right: -70%;
     display: flex;
     align-items: center;
@@ -155,7 +155,7 @@
     }
 
     #Investimentos .invest-group .card .ir .tooltip {
-        top: -1800%;
+        top: -1700%;
     }
 
     #Investimentos .invest-group .card .ir .tooltip:hover {
@@ -194,7 +194,7 @@
     }
 
     #Investimentos .invest-group .card .ir .tooltip {
-        top: -1500%;
+        top: -1430%;
     }
 
     #Investimentos .invest-group .card .ir .tooltip p {
@@ -228,11 +228,11 @@
     }
 
     #Investimentos .invest-group .card .ir .tooltip {
-        top: -1300%;
-        right: -65%;
-        width: 200px;
+        top: -1220%;
+        right: -68%;
+        width: 230px;
         padding: 7%;
-        padding-left: 10%;
+        padding-left: 9%;
     }
 
     #Investimentos .invest-group .card .ir .tooltip p {

@@ -19,7 +19,7 @@ function Home(){
                     <br/><br/>
                     <p>Matemática Financeira e Investimentos</p>
                     <br/><br/>
-                    <p>Prof. Caterine Tizziotti</p>
+                    <p>Prof. Catarine Tizziotti</p>
                 </span>
             </div>
             

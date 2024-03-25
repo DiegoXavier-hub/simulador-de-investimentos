@@ -52,6 +52,10 @@
     margin-right: -10%;
 }
 
+#Sobre a{
+    text-decoration: underline !important;
+}
+
 #Sobre .section .involved .persons li{
     padding: 7px;
     font-size: 1.6rem;
